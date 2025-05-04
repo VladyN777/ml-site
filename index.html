@@ -86,7 +86,7 @@
 
     /* Формы */
     input, textarea {
-      width: 100%;
+      width: 50%; /* Уменьшена ширина формы */
       padding: 12px;
       font-size: 1rem;
       border-radius: 5px;
@@ -95,6 +95,45 @@
 
     textarea {
       height: 150px; /* Увеличение высоты для сообщения */
+    }
+
+    /* Стили для выпадающей формы сбоку */
+    #contactFormContainer {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 300px;
+      background-color: #2a2a3b;
+      color: white;
+      padding: 20px;
+      box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      display: none; /* Изначально скрыта */
+      z-index: 9999;
+    }
+
+    #contactFormContainer button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    #contactIcon {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #4CAF50;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10000;
     }
   </style>
 </head>
@@ -126,24 +165,6 @@
     </ul>
   </section>
 
-  <section>
-    <h2>Contact Us</h2>
-    <p>Get in touch with us to discuss how we can help your business:</p>
-    <p>Email: <a href="mailto:vladcfb@gmail.com" style="color: #4CAF50;">vladcfb@gmail.com</a></p>
-    
-    <h3>Contact Form</h3>
-    <!-- Форма для отправки через Formspree -->
-    <form action="https://formspree.io/f/xldbjyrg" method="POST">
-      <label for="email">Your email:</label><br>
-      <input type="email" name="email" required><br>
-
-      <label for="message">Your message:</label><br>
-      <textarea name="message" required></textarea><br>
-
-      <button type="submit">Send</button>
-    </form>
-  </section>
-
   <footer>
     <p>&copy; 2025 ML Company</p>
   </footer>
@@ -153,6 +174,23 @@
 
   <!-- Кнопка для прокрутки вниз -->
   <button id="scrollDownBtn" onclick="scrollToSection()">&#8595;</button>
+
+  <!-- Контактная форма справа -->
+  <div id="contactFormContainer">
+    <h3>Contact Us</h3>
+    <form action="https://formspree.io/f/xldbjyrg" method="POST">
+      <label for="email">Your email:</label><br>
+      <input type="email" name="email" required><br>
+
+      <label for="message">Your message:</label><br>
+      <textarea name="message" required></textarea><br>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <!-- Иконка для открытия контактной формы -->
+  <div id="contactIcon" onclick="toggleContactForm()">Contact Us</div>
 
   <script>
     // Плавающая кнопка для прокрутки вверх
@@ -176,6 +214,15 @@
     function scrollToSection() {
       document.querySelector('#section1').scrollIntoView({ behavior: 'smooth' });
     }
+
+    // Открытие и скрытие контактной формы
+    function toggleContactForm() {
+      const contactForm = document.getElementById('contactFormContainer');
+      contactForm.style.display = contactForm.style.display === 'none' || contactForm.style.display === '' ? 'block' : 'none';
+    }
+
+    // Изначально скрываем форму
+    document.getElementById('contactFormContainer').style.display = 'none';
   </script>
 </body>
 </html>
