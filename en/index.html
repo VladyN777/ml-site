@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ML Company</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="ML Company – custom machine learning solutions, computer vision, AI consulting" />
+  <meta name="keywords" content="machine learning, deep learning, AI, computer vision" />
+  <meta property="og:title" content="ML Company" />
+  <meta property="og:description" content="Innovative ML solutions for businesses" />
+  <meta property="og:image" content="https://your.site/og-image.jpg" />
+  <meta property="og:url" content="https://your.site" />
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #1a1a2e;
+      --fg: #e0e0e0;
+      --card: #2a2a3b;
+      --accent: #4CAF50;
+      --light-bg: #f5f5f5;
+      --light-fg: #222;
+      --light-card: #fff;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0; padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      scroll-behavior: smooth;
+      font-size: 18px; line-height: 1.6;
+      padding-bottom: 60px;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.light {
+      background: var(--light-bg);
+      color: var(--light-fg);
+    }
+    header {
+      position: relative;
+      background: var(--bg);
+      color: var(--fg);
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    header img { max-width: 200px; height: auto; margin-bottom: 1rem; }
+    header h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      margin: 0.5rem 0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: rgba(26,26,46,0.95);
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1001;
+    }
+    nav a {
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--accent); }
+    #themeToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card);
+      color: var(--fg);
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      z-index: 1002;
+    }
+    #langSelect {
+      position: fixed;
+      top: 20px;
+      right: 80px;
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: var(--card);
+      color: var(--fg);
+      z-index: 1002;
+    }
+    section {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2.5rem 1rem;
+    }
+    section h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    section p { color: #cfcfcf; margin-bottom: 1.5rem; }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--card);
+      padding: 1.75rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+    .service-card h3 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .service-card h3::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 6px 0 1rem;
+    }
+    .service-card p { font-weight: 300; color: #d0d0d0; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/assets/logo.jpg" alt="Company Logo" />
+    <h1>ML Company</h1>
+  </header>
+  <nav>
+    <a href="#section1">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#team">Team</a>
+    <a href="#faq">FAQ</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#blog">Blog</a>
+    <a href="#partners">Partners</a>
+    <a href="#cta">Get Started</a>
+  </nav>
+  <button id="themeToggle" onclick="toggleTheme()">🌓</button>
+  <select id="langSelect">
+    <option value="en" selected>English</option>
+    <option value="de">Deutsch</option>
+    <option value="fr">Français</option>
+    <option value="zh">中文</option>
+  </select>
+
+  <section id="section1" data-aos="fade-up">
+    <h2>About Us</h2>
+    <p>We develop innovative machine learning solutions for businesses. Our services include trend forecasting, process automation, computer vision, big data processing and analysis.</p>
+  </section>
+
+  <section id="services" data-aos="fade-up">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card" data-aos="zoom-in">
+        <h3>Custom ML Models</h3>
+        <p>From regression to deep neural networks, we build and deploy models tailored to your data and goals—forecasting demand, optimizing processes, predicting failures.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+        <h3>Computer Vision</h3>
+        <p>Image and video analysis: object detection, segmentation, OCR and quality inspection. We help automate visual tasks in manufacturing, retail, healthcare and security.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+        <h3>Chatbots & NLP</h3>
+        <p>Conversational AI: customer-support bots, sentiment analysis, text classification and language understanding. Enhance your 24/7 customer interactions.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+        <h3>Predictive Maintenance</h3>
+        <p>Analyze sensor data to forecast equipment failures before they occur, reducing downtime, cutting repair costs and boosting operational reliability.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+        <h3>Data Analytics & Insights</h3>
+        <p>Interactive dashboards, advanced visualizations and analytical reports that turn your data into actionable intelligence for smarter decision-making.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
+        <h3>Robotic Process Automation</h3>
+        <p>Automate repetitive business tasks—document processing, system integrations and transaction handling—freeing your team to focus on strategic work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The rest of the sections (Projects, Testimonials, Team, FAQ, Pricing, Blog, Partners, CTA, Contact Info) should be added here -->
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+      localStorage.theme = document.body.classList.contains('light') ? 'light' : 'dark';
+    }
+    if (localStorage.theme === 'light') document.body.classList.add('light');
+    document.getElementById('langSelect').onchange = function() {
+      const lang = this.value;
+      window.location.pathname = lang === 'en' ? '/' : `/${lang}/`;
+    };
+  </script>
+</body>
+</html>
