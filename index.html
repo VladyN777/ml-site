@@ -5,76 +5,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ML Company</title>
   <style>
+    /* Общие стили */
     body {
       font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #1a1a2e; color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      background: #1a1a2e;
+      color: #e0e0e0;
       scroll-behavior: smooth;
-      padding-bottom: 60px; /* пространство для футера */
+      font-size: 18px;
+      line-height: 1.6;
+      padding-bottom: 60px; /* пространство для фиксированного футера */
     }
     header {
-      background: #1a1a2e; color: #fff;
-      text-align: center; padding: 2rem 1rem;
+      background: #1a1a2e;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header img {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 1rem;
     }
     section {
-      background: #1a1a2e; color: #e0e0e0;
-      margin: 2rem 1rem; padding: 2rem;
+      background: #1a1a2e;
+      margin: 2rem 1rem;
+      padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    h2 { color: #fff; font-size: 2rem; }
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    section p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    section ul {
+      list-style: disc inside;
+      margin: 0 0 1rem;
+      padding-left: 1.5rem;
+    }
+    section ul li {
+      margin-bottom: 0.5rem;
+    }
 
-    /* фиксированный футер по центру */
+    /* Фиксированный футер */
     footer {
-      position: fixed; bottom: 0; left: 0; width: 100%;
-      background: #1a1a2e; color: #e0e0e0;
-      text-align: center; padding: 10px 0;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      text-align: center;
+      padding: 10px 0;
     }
 
     /* Кнопки прокрутки */
     #scrollDownBtn, #scrollToTopBtn {
-      position: fixed; right: 20px;
-      background: #4CAF50; color: #fff;
-      border: none; padding: 12px;
-      font-size: 20px; border-radius: 50%;
-      cursor: pointer; z-index: 1000;
+      position: fixed;
+      right: 20px;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      font-size: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     #scrollDownBtn { bottom: 80px; }
     #scrollToTopBtn { bottom: 20px; display: none; }
 
-    /* Контейнер формы */
+    /* Контейнер выплывающей формы */
     #contactFormContainer {
-      position: fixed; right: 20px; bottom: 80px;
-      width: 350px; /* чуть шире */
-      background: #f5f5dc; color: #000;
-      padding: 20px; border-radius: 8px;
+      position: fixed;
+      right: 20px;
+      bottom: 80px;
+      width: 350px;
+      background: #f5f5dc;
+      color: #000;
+      padding: 20px;
+      border-radius: 8px;
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      opacity: 0; transform: translateY(20px);
-      transition: all .3s ease;
-      z-index: 1001; pointer-events: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 1001;
     }
     #contactFormContainer.show {
-      opacity: 1; transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
       pointer-events: auto;
     }
-
-    /* Поля растягиваются на всю ширину контейнера */
+    #contactFormContainer h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    #contactFormContainer label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
     #contactFormContainer input,
     #contactFormContainer textarea {
-      width: 100%; /* 100% ширины контейнера */
-      padding: 10px; margin-bottom: 12px;
-      border-radius: 4px; border: 1px solid #ccc;
-      font-size: 14px; box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      box-sizing: border-box;
     }
     #contactFormContainer textarea {
-      height: 120px; /* вы можете увеличить по вкусу */
+      height: 120px;
     }
     #contactFormContainer button {
-      width: 100%; padding: 12px;
-      background: #4CAF50; color: #fff;
-      border: none; border-radius: 5px;
-      font-size: 1rem; cursor: pointer;
+      width: 100%;
+      padding: 12px;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
     }
     #contactFormContainer button:hover {
       background: #45a049;
@@ -82,38 +141,48 @@
 
     /* Кнопка открытия формы */
     #contactIcon {
-      position: fixed; right: 20px; bottom: 20px;
-      background: #f5f5dc; color: #000;
-      padding: 12px 20px; border-radius: 5px;
-      font-size: 16px; cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: background .2s, transform .2s;
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #f5f5dc;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
       z-index: 1002;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.2s, transform 0.2s;
     }
     #contactIcon:hover {
-      background: #e0e0b0; transform: scale(1.05);
+      background: #e0e0b0;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="logo.jpg" alt="Company Logo" style="max-width:150px;"/>
+    <img src="logo.jpg" alt="Company Logo"/>
     <h1>ML Company</h1>
   </header>
 
   <section id="section1">
     <h2>About Us</h2>
-    <p>We develop innovative machine learning solutions for businesses…</p>
+    <p>
+      We develop innovative machine learning solutions for businesses.
+      Our services include trend forecasting, process automation,
+      computer vision, big data processing and analysis.
+    </p>
   </section>
 
   <section>
     <h2>Our Services</h2>
+    <p>We offer a wide range of services tailored to your needs:</p>
     <ul>
-      <li>Custom ML models</li>
-      <li>Consulting</li>
-      <li>Data analysis</li>
-      <li>Integration</li>
+      <li>Custom machine learning models</li>
+      <li>Consulting on ML implementation in business</li>
+      <li>Data analysis and insights extraction</li>
+      <li>Integration of solutions into existing systems</li>
     </ul>
   </section>
 
@@ -121,9 +190,11 @@
     © 2025 ML Company
   </footer>
 
+  <!-- Кнопки прокрутки -->
   <button id="scrollDownBtn" onclick="scrollToSection()">&#8595;</button>
   <button id="scrollToTopBtn" onclick="scrollToTop()">&#8593;</button>
 
+  <!-- Контейнер выплывающей формы -->
   <div id="contactFormContainer">
     <h3>Contact Us</h3>
     <form action="https://formspree.io/f/xldbjyrg" method="POST">
@@ -134,23 +205,27 @@
       <button type="submit">Send</button>
     </form>
   </div>
+
+  <!-- Кнопка открытия формы -->
   <div id="contactIcon" onclick="toggleContactForm()">Contact Us</div>
 
   <script>
-    // Scroll buttons
+    // Scroll-to-top button
     const topBtn = document.getElementById('scrollToTopBtn');
     window.onscroll = () => {
       topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
     };
-    function scrollToSection() {
-      document.getElementById('section1').scrollIntoView({ behavior:'smooth' });
-    }
     function scrollToTop() {
-      window.scrollTo({ top:0, behavior:'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    // Toggle Contact form
+    // Scroll-down button
+    function scrollToSection() {
+      document.getElementById('section1').scrollIntoView({ behavior: 'smooth' });
+    }
+    // Toggle contact form
     function toggleContactForm() {
-      document.getElementById('contactFormContainer').classList.toggle('show');
+      document.getElementById('contactFormContainer')
+              .classList.toggle('show');
     }
   </script>
 </body>
