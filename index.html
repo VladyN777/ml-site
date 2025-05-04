@@ -6,11 +6,11 @@
   <title>ML Company</title>
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="ML Company – custom machine learning solutions, computer vision, AI consulting" />
-  <meta name="keywords" content="machine learning, deep learning, AI, computer vision" />
+  <meta name="description" content="ML Company – Custom machine learning solutions, computer vision, AI consulting" />
+  <meta name="keywords" content="machine learning, deep learning, artificial intelligence, computer vision" />
   <meta property="og:title" content="ML Company" />
-  <meta property="og:description" content="Innovative ML solutions for enterprises" />
-  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta property="og:description" content="Providing innovative ML solutions for enterprises" />
+  <meta property="og:image" content="https://your.site/assets/og-image.jpg" />
   <meta property="og:url" content="https://your.site" />
 
   <!-- AOS Animation CSS -->
@@ -24,36 +24,32 @@
       --fg: #e0e0e0;
       --card: #2a2a3b;
       --accent: #4CAF50;
-      --light-bg: #f5f5dc;
+      --light-bg: #f5f5f5;
       --light-fg: #222;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Poppins', sans-serif;
+      margin: 0; padding: 0;
       background: var(--bg);
       color: var(--fg);
       scroll-behavior: smooth;
-      font-size: 18px;
-      line-height: 1.6;
+      font-size: 18px; line-height: 1.6;
       padding-bottom: 60px;
-      transition: background .3s, color .3s;
+      transition: background 0.3s, color 0.3s;
     }
     body.light { background: var(--light-bg); color: var(--light-fg); }
 
     header {
-      position: sticky; top: 0;
+      position: relative;
       background: var(--bg);
       text-align: center;
       padding: 1rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
       z-index: 1000;
     }
-    header img {
-      max-width: 200px;
-      display: block;
-      margin: 0 auto 1rem;
-    }
+    header img { max-width: 200px; margin-bottom: 1rem; }
     header h1 {
+      margin: 0.5rem 0;
       font-size: 2rem;
       font-weight: 600;
       letter-spacing: 1px;
@@ -64,8 +60,10 @@
       justify-content: center;
       gap: 20px;
       background: rgba(26,26,46,0.95);
-      padding: 0.75rem 0;
-      position: sticky; top: 72px; z-index: 1001;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1001;
     }
     nav a {
       color: var(--fg);
@@ -76,7 +74,10 @@
     nav a:hover { color: var(--accent); }
 
     #themeToggle, #langSelect {
-      position: fixed; top: 20px; border-radius: 4px; z-index: 1002;
+      position: fixed;
+      top: 20px;
+      border-radius: 4px;
+      z-index: 1002;
     }
     #themeToggle {
       right: 20px;
@@ -88,10 +89,10 @@
     }
     #langSelect {
       right: 80px;
+      padding: 6px;
       background: var(--card);
       color: var(--fg);
-      border: 1px solid #555;
-      padding: 6px;
+      border: 1px solid #ccc;
     }
 
     section {
@@ -100,10 +101,8 @@
       padding: 2.5rem 1rem;
     }
     section h2 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      position: relative;
-      margin-bottom: 1rem;
+      font-size: 2.5rem; font-weight: 600;
+      position: relative; margin-bottom: 1rem;
     }
     section h2::after {
       content: '';
@@ -116,8 +115,8 @@
       border-radius: 2px;
     }
     section p { color: #cfcfcf; margin-bottom: 1.5rem; }
-    ul { padding-left: 1.5rem; }
 
+    /* Services grid */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -135,12 +134,21 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
     .service-card h3 {
-      font-size: 1.75rem;
-      color: var(--accent);
-      margin-bottom: .5rem;
+      font-size: 1.75rem; font-weight: 500;
+      color: var(--accent); margin-bottom: .5rem;
+    }
+    .service-card h3::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 6px 0 1rem;
     }
     .service-card p { font-weight: 300; color: #d0d0d0; }
 
+    /* Projects grid */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -158,17 +166,14 @@
     .project-card h3 { margin: .75rem; color: var(--accent); }
     .project-card p { margin: 0 .75rem 1rem; color: #d0d0d0; }
     .project-card a {
-      display: inline-block;
-      margin: 0 .75rem 1rem;
-      color: var(--accent);
-      text-decoration: none;
+      display: inline-block; margin: 0 .75rem 1rem;
+      color: var(--accent); text-decoration: none;
     }
 
+    /* Testimonials */
     .testimonials {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      padding: 1rem 0;
+      display: flex; gap: 20px;
+      overflow-x: auto; padding: 1rem 0;
     }
     .testimonial {
       flex: 0 0 250px;
@@ -180,6 +185,7 @@
     .testimonial p { font-style: italic; color: #d0d0d0; }
     .testimonial span { display: block; margin-top: .5rem; font-weight: 500; color: #fff; }
 
+    /* Team */
     .team-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
@@ -191,34 +197,26 @@
       border-radius: 50%; object-fit: cover;
       margin-bottom: .5rem;
     }
-    .member h3 { color: var(--accent); margin: .5rem 0 0; }
+    .member h3 { margin: .5rem 0 0; color: var(--accent); font-weight: 500; }
     .member p { color: #d0d0d0; }
 
+    /* FAQ */
     .faq-item { margin-bottom: 1rem; }
     .faq-q {
-      width: 100%;
-      background: var(--card);
-      color: #fff;
-      border: none;
-      padding: 12px;
-      text-align: left;
-      border-radius: 5px;
-      cursor: pointer;
+      width: 100%; background: var(--card);
+      color: #fff; border: none; padding: 12px;
+      text-align: left; border-radius: 5px; cursor: pointer;
     }
     .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      background: var(--card);
-      color: #d0d0d0;
+      max-height: 0; overflow: hidden;
+      background: var(--card); color: #d0d0d0;
       transition: max-height .3s ease;
     }
     .faq-a.open { max-height: 200px; padding: 12px; }
 
+    /* Pricing */
     .pricing-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+      display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
     }
     .plan {
       background: var(--card);
@@ -233,107 +231,85 @@
     .plan ul { list-style: none; padding: 0; margin: 1rem 0; }
     .plan ul li { color: #d0d0d0; margin-bottom: .5rem; }
     .plan button {
-      background: var(--accent);
-      color: #fff;
-      padding: .75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      margin-top: 1rem; padding: .75rem 1.5rem;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 5px; cursor: pointer;
     }
     .plan button:hover { background: #45a049; }
 
+    /* Blog */
     .posts article { margin-bottom: 1.5rem; }
     .posts h3 a { color: var(--accent); text-decoration: none; }
 
+    /* Partners */
     .logos {
       display: flex; gap: 20px; justify-content: center; padding: 2rem 0;
     }
     .logos img { max-height: 60px; opacity: .7; transition: opacity .2s; }
     .logos img:hover { opacity: 1; }
 
-    #cta {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: #27293d;
-    }
+    /* CTA */
+    #cta { text-align: center; padding: 3rem 1rem; background: #27293d; }
     #cta h2 { color: var(--accent); margin-bottom: 1rem; font-size: 2rem; }
     #cta button {
-      background: var(--accent);
-      color: #fff;
-      padding: 1rem 2rem;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
+      background: var(--accent); color: #fff;
+      padding: 1rem 2rem; font-size: 1.1rem;
+      border-radius: 5px; border: none; cursor: pointer;
     }
     #cta button:hover { background: #45a049; }
 
+    /* Locations */
     .map-grid {
       display: flex; gap: 20px; justify-content: center; flex-wrap: nowrap;
     }
     .map-card { flex: 1; max-width: 32%; }
     .map-card iframe {
-      width: 100%;
-      height: 200px;
-      border: 0;
-      border-radius: 8px;
+      width: 100%; height: 200px; border: 0; border-radius: 8px;
     }
     .map-card p { text-align: center; color: #cfcfcf; margin-top: .5rem; }
 
-    #contactIcon {
-      position: fixed;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--accent);
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      z-index: 1002;
-    }
+    /* Contact Form Drawer */
     #contactFormContainer {
-      position: fixed;
-      right: 80px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 360px;
-      background: var(--light-bg);
-      color: var(--light-fg);
-      padding: 24px;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      opacity: 0;
-      transition: all .3s ease;
-      pointer-events: none;
-      z-index: 1001;
+      position: fixed; right: 20px; bottom: 80px; width: 360px;
+      background: #f5f5dc; color: #000; padding: 24px; border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3); opacity: 0;
+      transform: translateY(20px); transition: all .3s ease;
+      pointer-events: none; z-index: 1001;
     }
     #contactFormContainer.show {
-      opacity: 1;
-      pointer-events: auto;
+      opacity: 1; transform: translateY(0); pointer-events: auto;
     }
+    #contactFormContainer h3 { margin: 0 0 1rem; font-size: 1.5rem; }
+    #contactFormContainer label { display: block; margin-bottom: .5rem; }
+    #contactFormContainer input,
+    #contactFormContainer textarea {
+      width: 100%; padding: 12px; margin-bottom: 1rem;
+      border-radius: 5px; border: 1px solid #ccc;
+    }
+    #contactFormContainer textarea { height: 140px; }
+    #contactFormContainer button {
+      width: 100%; padding: 14px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 5px; cursor: pointer;
+    }
+    #contactFormContainer button:hover { background: #45a049; }
 
+    /* Scroll Buttons */
     #scrollDownBtn, #scrollToTopBtn {
-      position: fixed;
-      right: 20px;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 12px;
-      font-size: 20px;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 1000;
+      position: fixed; right: 20px;
+      background: var(--accent); color: #fff;
+      border: none; padding: 12px; font-size: 20px;
+      border-radius: 50%; cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000;
     }
     #scrollDownBtn { bottom: 80px; }
     #scrollToTopBtn { bottom: 20px; display: none; }
 
+    /* Footer */
     footer {
       position: fixed; left: 0; bottom: 0;
-      width: 100%;
-      background: var(--bg);
-      color: var(--fg);
-      text-align: center;
+      width: 100%; background: var(--bg);
+      color: var(--fg); text-align: center;
       padding: 10px 0;
     }
   </style>
@@ -359,10 +335,10 @@
 
   <button id="themeToggle" onclick="toggleTheme()">🌓</button>
   <select id="langSelect">
-    <option value="/ml-site/">English</option>
-    <option value="/ml-site/de/">Deutsch</option>
-    <option value="/ml-site/fr/">Français</option>
-    <option value="/ml-site/zh/" selected>中文</option>
+    <option value="en" selected>English</option>
+    <option value="de">Deutsch</option>
+    <option value="fr">Français</option>
+    <option value="zh">中文</option>
   </select>
 
   <section id="section1" data-aos="fade-up">
@@ -373,13 +349,28 @@
   <section id="services" data-aos="fade-up">
     <h2>Our Services</h2>
     <div class="services-grid">
-      <div class="service-card" data-aos="zoom-in"><h3>Custom ML Models</h3><p>From regression to deep neural networks, we build and deploy models tailored to your data and objectives.</p></div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="100"><h3>Computer Vision</h3><p>Image and video analysis: object detection, segmentation, OCR, and quality inspection. Automating visual tasks across industries.</p></div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="200"><h3>Chatbots & NLP</h3><p>Conversational AI: customer support bots, sentiment analysis, text classification, and language understanding for 24/7 engagement.</p></div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="300"><h3>Predictive Maintenance</h3><p>Analyzing sensor data to predict equipment failures before they happen, reducing downtime and maintenance costs.</p></div>
+      <div class="service-card" data-aos="zoom-in">
+        <h3>Custom ML Models</h3>
+        <p>From regression to deep neural networks, we build and deploy models tailored to your data and objectives.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+        <h3>Computer Vision</h3>
+        <p>Image and video analysis: object detection, segmentation, OCR, quality inspection—automating visual tasks across industries.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+        <h3>Chatbots & NLP</h3>
+        <p>Conversational AI: customer support bots, sentiment analysis, text classification, and language understanding for 24/7 engagement.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+        <h3>Predictive Maintenance</h3>
+        <p>Analyze sensor data to predict equipment failures before they happen, reducing downtime and maintenance costs.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+        <h3>Data Analytics & Insights</h3>
+        <p>Interactive dashboards and advanced analytics to turn data into actionable insights.</p>
       <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
         <h3>Process Automation</h3>
-        <p>Streamline operations: document processing, system integration, and automated workflows.</p>
+        <p>Automate routine tasks: document processing, system integration, and transactional workflows.</p>
       </div>
     </div>
   </section>
@@ -389,9 +380,9 @@
     <div class="project-grid">
       <div class="project-card" data-aos="fade-up">
         <img src="assets/project1.jpg" alt="Demand Prediction" />
-        <h3>Demand Prediction</h3>
-        <p>Reduced stock-outs by 30% for a major retailer.</p>
-        <a href="#">Read Case Study →</a>
+        <h3>Demand Prediction Case Study</h3>
+        <p>Helped a major e-commerce client reduce stock-outs by 30%.</p>
+        <a href="#">View Case Study →</a>
       </div>
       <!-- add more project cards here -->
     </div>
@@ -424,13 +415,13 @@
     <h2>FAQ</h2>
     <div class="faq-item">
       <button class="faq-q">How long does a project typically take?</button>
-      <div class="faq-a">Usually 4–6 weeks from kickoff to delivery.</div>
+      <div class="faq-a">Typically 4–6 weeks from kickoff to delivery.</div>
     </div>
     <!-- add more FAQ items here -->
   </section>
 
   <section id="pricing" data-aos="fade-up">
-    <h2>Pricing</h2>
+    <h2>Pricing Plans</h2>
     <div class="pricing-grid">
       <div class="plan" data-aos="zoom-in">
         <h3>Starter</h3>
@@ -450,7 +441,7 @@
     <div class="posts">
       <article>
         <h3><a href="#">5 Ways ML Improves Manufacturing</a></h3>
-        <p>Discover how predictive maintenance saves millions in operational costs.</p>
+        <p>Learn how predictive maintenance can save millions in operational costs.</p>
       </article>
       <!-- add more blog posts here -->
     </div>
@@ -460,7 +451,6 @@
     <h2>Partners</h2>
     <div class="logos">
       <img src="assets/openai.png" alt="OpenAI Logo" />
-      <!-- add more partner logos here -->
     </div>
   </section>
 
@@ -473,24 +463,15 @@
     <h2>Our Locations</h2>
     <div class="map-grid">
       <div class="map-card">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2672.203331795797!2d11.563373315679876!3d48.13512517922757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e74f65a0a4d5f%3A0xa4b6a4f1d5a1a2a!2sMunich!5e0!3m2!1sen!2sus!4v1600000000000"
-          allowfullscreen="" loading="lazy">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2672.203331795797!2d11.563373315679876!3d48.13512517922757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e74f65a0a4d5f%3A0xa4b6a4f1d5a1a2a!2sMunich!5e0!3m2!1sen!2sus!4v1600000000000" loading="lazy"></iframe>
         <p>Munich, Germany</p>
       </div>
       <div class="map-card">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086473482047!2d-122.4194152846778!3d37.774929279758634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c3cba1d79%3A0x2dc8c31f5b6b7b9f!2sSan%20Francisco!5e0!3m2!1sen!2sus!4v1600000000001"
-          allowfullscreen="" loading="lazy">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086473482047!2d-122.4194152846778!3d37.774929279758634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c3cba1d79%3A0x2dc8c31f5b6b7b9f!2sSan%20Francisco!5e0!3m2!1sen!2sus!4v1600000000001" loading="lazy"></iframe>
         <p>San Francisco, USA</p>
       </div>
       <div class="map-card">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999946715574!2d2.3522213156745733!3d48.85661407928764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671d877bfb841%3A0x8d3179bb4d4c3e0e!2sParis!5e0!3m2!1sen!2sus!4v1600000000002"
-          allowfullscreen="" loading="lazy">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999946715574!2d2.3522213156745733!3d48.85661407928764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671d877bfb841%3A0x8d3179bb4d4c3e0e!2sParis!5e0!3m2!1sen!2sus!4v1600000000002" loading="lazy"></iframe>
         <p>Paris, France</p>
       </div>
     </div>
@@ -500,9 +481,9 @@
   <div id="contactFormContainer">
     <h3>Contact Us</h3>
     <form action="https://formspree.io/f/xldbjyrg" method="POST">
-      <label>Your email:</label>
+      <label>Your Email:</label>
       <input type="email" name="email" required />
-      <label>Your message:</label>
+      <label>Your Message:</label>
       <textarea name="message" required></textarea>
       <button type="submit">Send</button>
     </form>
@@ -518,28 +499,32 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
-    // Scroll-to-top button
     const topBtn = document.getElementById('scrollToTopBtn');
-    window.onscroll = () => topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    window.onscroll = () => {
+      topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
     function scrollToSection() { document.getElementById('section1').scrollIntoView({ behavior: 'smooth' }); }
-    // FAQ toggle
-    document.querySelectorAll('.faq-q').forEach(btn => btn.onclick = () => btn.nextElementSibling.classList.toggle('open'));
-    // Contact form drawer toggle
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.onclick = () => btn.nextElementSibling.classList.toggle('open');
+    });
     function toggleContactForm() {
       document.getElementById('contactFormContainer').classList.toggle('show');
     }
-    // Theme switcher
     function toggleTheme() {
       document.body.classList.toggle('light');
       localStorage.theme = document.body.classList.contains('light') ? 'light' : 'dark';
     }
     if (localStorage.theme === 'light') document.body.classList.add('light');
-    // Language selector
     document.getElementById('langSelect').onchange = function() {
       window.location.href = this.value;
     };
   </script>
 </body>
 </html>
+
+
+
+
+
 
