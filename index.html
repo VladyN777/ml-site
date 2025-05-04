@@ -4,136 +4,150 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ML Company</title>
+
+  <!-- Подключаем шрифт Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     /* Общие стили */
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #1a1a2e;
-      color: #e0e0e0;
+      font-family: 'Poppins', sans-serif;
+      margin: 0; padding: 0;
+      background: #1a1a2e; color: #e0e0e0;
       scroll-behavior: smooth;
-      font-size: 18px;
-      line-height: 1.6;
-      padding-bottom: 60px; /* пространство для фиксированного футера */
+      font-size: 18px; line-height: 1.6;
+      padding-bottom: 60px;
     }
     header {
-      background: #1a1a2e;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
+      background: #1a1a2e; color: #fff;
+      text-align: center; padding: 3rem 1rem;
     }
     header img {
-      max-width: 200px;
-      height: auto;
+      max-width: 200px; height: auto;
       margin-bottom: 1rem;
     }
+    header h1 {
+      font-weight: 600;
+      font-size: 3rem;
+      letter-spacing: 1px;
+    }
+
+    /* Секции */
     section {
       background: #1a1a2e;
-      margin: 2rem 1rem;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: 2rem 1rem; padding: 2.5rem;
+      border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
     section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+    section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -8px; left: 0;
+      width: 60px; height: 4px;
+      background: #4CAF50;
+      border-radius: 2px;
     }
     section p {
-      font-size: 1rem;
-      margin-bottom: 1rem;
+      font-weight: 300;
+      color: #cfcfcf;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
     }
-    section ul {
-      list-style: disc inside;
-      margin: 0 0 1rem;
-      padding-left: 1.5rem;
+
+    /* Сетка сервисов */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap: 24px;
+      margin-top: 1.5rem;
     }
-    section ul li {
-      margin-bottom: 0.5rem;
+    .service-card {
+      background: #2a2a3b;
+      padding: 1.75rem; border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+    .service-card h3 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: #4CAF50;
+      margin-top: 0; margin-bottom: 0.5rem;
+      letter-spacing: .5px;
+    }
+    .service-card h3::after {
+      content: "";
+      display: block;
+      width: 40px; height: 3px;
+      background: #4CAF50;
+      margin-top: 6px; margin-bottom: 1rem;
+      border-radius: 2px;
+    }
+    .service-card p {
+      font-weight: 300;
+      color: #d0d0d0;
     }
 
     /* Фиксированный футер */
     footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background: #1a1a2e;
-      color: #e0e0e0;
-      text-align: center;
-      padding: 10px 0;
+      position: fixed; left: 0; bottom: 0; width: 100%;
+      background: #1a1a2e; color: #e0e0e0;
+      text-align: center; padding: 12px 0;
+      font-weight: 300;
     }
 
     /* Кнопки прокрутки */
     #scrollDownBtn, #scrollToTopBtn {
-      position: fixed;
-      right: 20px;
-      background: #4CAF50;
-      color: #fff;
-      border: none;
-      padding: 12px;
-      font-size: 20px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 1000;
+      position: fixed; right: 20px;
+      background: #4CAF50; color: #fff;
+      border: none; padding: 12px; font-size: 20px;
+      border-radius: 50%; cursor: pointer; z-index: 1000;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     #scrollDownBtn { bottom: 80px; }
     #scrollToTopBtn { bottom: 20px; display: none; }
 
-    /* Контейнер выплывающей формы */
+    /* Выплывающая форма */
     #contactFormContainer {
-      position: fixed;
-      right: 20px;
-      bottom: 80px;
-      width: 350px;
-      background: #f5f5dc;
-      color: #000;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-      pointer-events: none;
-      z-index: 1001;
+      position: fixed; right: 20px; bottom: 80px;
+      width: 360px; background: #f5f5dc; color: #000;
+      padding: 24px; border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      opacity: 0; transform: translateY(20px);
+      transition: all .3s ease; pointer-events: none; z-index: 1001;
     }
     #contactFormContainer.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
+      opacity: 1; transform: translateY(0); pointer-events: auto;
     }
     #contactFormContainer h3 {
-      margin-top: 0;
-      margin-bottom: 1rem;
+      margin: 0 0 1rem;
+      font-size: 1.5rem; font-weight: 500;
     }
     #contactFormContainer label {
-      display: block;
-      margin-bottom: 0.5rem;
+      display: block; margin-bottom: .5rem;
+      font-weight: 500;
     }
     #contactFormContainer input,
     #contactFormContainer textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 12px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      box-sizing: border-box;
+      width: 100%; padding: 12px; margin-bottom: 1rem;
+      border-radius: 5px; border: 1px solid #ccc;
+      font-size: 1rem; box-sizing: border-box;
     }
-    #contactFormContainer textarea {
-      height: 120px;
-    }
+    #contactFormContainer textarea { height: 140px; }
     #contactFormContainer button {
-      width: 100%;
-      padding: 12px;
-      background: #4CAF50;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
+      width: 100%; padding: 14px;
+      background: #4CAF50; color: #fff;
+      border: none; border-radius: 5px;
+      font-size: 1rem; font-weight: 500; cursor: pointer;
+      transition: background .2s;
     }
     #contactFormContainer button:hover {
       background: #45a049;
@@ -141,26 +155,20 @@
 
     /* Кнопка открытия формы */
     #contactIcon {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background: #f5f5dc;
-      color: #000;
-      padding: 12px 20px;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      z-index: 1002;
+      position: fixed; right: 20px; bottom: 20px;
+      background: #f5f5dc; color: #000;
+      padding: 14px 24px; border-radius: 6px;
+      font-size: 16px; font-weight: 500; cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: background 0.2s, transform 0.2s;
+      transition: background .2s, transform .2s; z-index: 1002;
     }
     #contactIcon:hover {
-      background: #e0e0b0;
-      transform: scale(1.05);
+      background: #e0e0b0; transform: scale(1.05);
     }
   </style>
 </head>
 <body>
+
   <header>
     <img src="logo.jpg" alt="Company Logo"/>
     <h1>ML Company</h1>
@@ -177,24 +185,53 @@
 
   <section>
     <h2>Our Services</h2>
-    <p>We offer a wide range of services tailored to your needs:</p>
-    <ul>
-      <li>Custom machine learning models</li>
-      <li>Consulting on ML implementation in business</li>
-      <li>Data analysis and insights extraction</li>
-      <li>Integration of solutions into existing systems</li>
-    </ul>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Custom ML Models</h3>
+        <p>From regression to deep neural networks, we build and deploy
+           models tailored to your data and goals—forecasting demand,
+           optimizing processes, predicting failures.</p>
+      </div>
+      <div class="service-card">
+        <h3>Computer Vision</h3>
+        <p>Image and video analysis: object detection, segmentation,
+           OCR and quality inspection. We help automate visual tasks
+           in manufacturing, retail, healthcare and security.</p>
+      </div>
+      <div class="service-card">
+        <h3>Chatbots &amp; NLP</h3>
+        <p>Conversational AI: customer-support bots, sentiment analysis,
+           text classification and language understanding. Enhance
+           your 24/7 customer interactions.</p>
+      </div>
+      <div class="service-card">
+        <h3>Predictive Maintenance</h3>
+        <p>Analyze sensor data to forecast equipment failures before
+           they occur, reducing downtime, cutting repair costs and
+           boosting operational reliability.</p>
+      </div>
+      <div class="service-card">
+        <h3>Data Analytics &amp; Insights</h3>
+        <p>Interactive dashboards, advanced visualizations and
+           analytical reports that turn your data into actionable
+           intelligence for smarter decision-making.</p>
+      </div>
+      <div class="service-card">
+        <h3>Robotic Process Automation</h3>
+        <p>Automate repetitive business tasks—document processing,
+           system integrations and transaction handling—freeing your
+           team to focus on strategic work.</p>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    © 2025 ML Company
-  </footer>
+  <footer>© 2025 ML Company</footer>
 
-  <!-- Кнопки прокрутки -->
+  <!-- Scroll buttons -->
   <button id="scrollDownBtn" onclick="scrollToSection()">&#8595;</button>
   <button id="scrollToTopBtn" onclick="scrollToTop()">&#8593;</button>
 
-  <!-- Контейнер выплывающей формы -->
+  <!-- Contact form -->
   <div id="contactFormContainer">
     <h3>Contact Us</h3>
     <form action="https://formspree.io/f/xldbjyrg" method="POST">
@@ -205,12 +242,10 @@
       <button type="submit">Send</button>
     </form>
   </div>
-
-  <!-- Кнопка открытия формы -->
   <div id="contactIcon" onclick="toggleContactForm()">Contact Us</div>
 
   <script>
-    // Scroll-to-top button
+    // Scroll-to-top
     const topBtn = document.getElementById('scrollToTopBtn');
     window.onscroll = () => {
       topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
@@ -218,15 +253,15 @@
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    // Scroll-down button
+    // Scroll-to-section
     function scrollToSection() {
       document.getElementById('section1').scrollIntoView({ behavior: 'smooth' });
     }
     // Toggle contact form
     function toggleContactForm() {
-      document.getElementById('contactFormContainer')
-              .classList.toggle('show');
+      document.getElementById('contactFormContainer').classList.toggle('show');
     }
   </script>
+
 </body>
 </html>
