@@ -308,16 +308,20 @@
 
     /* Поля ввода и текстовая область */
     #contactFormContainer input,
-    #contactFormContainer textarea {
-      width: 100%;                /* ровно по ширине контейнера */
-      box-sizing: border-box;     /* чтобы padding/бордеры не давали выступать */
+     #contactFormContainer textarea {
+      width: 100%;
       padding: 10px;
       margin-bottom: 12px;
       border: 1px solid #bbb;
       border-radius: 4px;
       background: #fff;
       color: #333;
-      font-size: 1rem;
+       font-size: 1rem;
+
+      /* вот эта строка меняет высоту */
+      height: 200px;
+      /* разрешаем пользователю растягивать форму по вертикали */
+      resize: vertical;
     }
 
     /* Кнопка отправки внутри формы */
