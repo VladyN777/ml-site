@@ -268,16 +268,37 @@
     }
     .map-card p { text-align: center; color: #cfcfcf; margin-top: .5rem; }
 
-    /* Contact Form Drawer */
+   /* кнопка справа внизу */
+#contactIcon {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #4CAF50;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+    /* скрытый по умолчанию бежевый прямоугольник */
     #contactFormContainer {
-      position: fixed; right: 20px; bottom: 80px; width: 360px;
-      background: #f5f5dc; color: #000; padding: 24px; border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3); opacity: 0;
-      transform: translateY(20px); transition: all .3s ease;
-      pointer-events: none; z-index: 1001;
+      position: fixed;
+      right: 20px;
+      bottom: 70px;       /* над кнопкой */
+      width: 320px;
+      background: #f5f5dc;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 999;
     }
+
+    /* при клике показываем */
     #contactFormContainer.show {
-      opacity: 1; transform: translateY(0); pointer-events: auto;
+      display: block;
     }
     #contactFormContainer h3 { margin: 0 0 1rem; font-size: 1.5rem; }
     #contactFormContainer label { display: block; margin-bottom: .5rem; }
@@ -481,7 +502,7 @@
     </div>
   </section>
 
-  <!-- Contact Form Drawer -->
+  <!-- Contact form drawer -->
   <div id="contactFormContainer">
     <h3>Contact Us</h3>
     <form action="https://formspree.io/f/xldbjyrg" method="POST">
@@ -492,9 +513,11 @@
       <button type="submit">Send</button>
     </form>
   </div>
+
+  <!-- Floating Contact Us button -->
   <div id="contactIcon" onclick="toggleContactForm()">Contact Us</div>
 
-  <!-- Scroll Buttons -->
+  <!-- Scroll buttons, footer и т.п. -->
   <button id="scrollDownBtn" onclick="scrollToSection()">↓</button>
   <button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
 
@@ -513,7 +536,9 @@
       btn.onclick = () => btn.nextElementSibling.classList.toggle('open');
     });
     function toggleContactForm() {
-      document.getElementById('contactFormContainer').classList.toggle('show');
+    document
+      .getElementById('contactFormContainer')
+      .classList.toggle('show');
     }
     function toggleTheme() {
       document.body.classList.toggle('light');
