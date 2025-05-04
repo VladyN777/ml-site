@@ -18,8 +18,12 @@
       background: #1a1a2e;
       color: #fff;
       text-align: center;
-      padding: 2rem;
-      font-size: 3rem;
+      padding: 2rem 1rem;
+    }
+    header img {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 1rem;
     }
     footer {
       background: #1a1a2e;
@@ -83,8 +87,8 @@
 </head>
 <body>
   <header>
-    <img src="logo.jpg" alt="Company Logo" style="max-width: 150px; height: auto;">
-    ML Company
+    <img src="logo.jpg" alt="Company Logo">
+    <h1>ML Company</h1>
   </header>
 
   <section id="section1">
@@ -107,6 +111,24 @@
       <li>Data analysis and insights extraction</li>
       <li>Integration of solutions into existing systems</li>
     </ul>
+  </section>
+
+  <section>
+    <h2>Contact Us</h2>
+    <p>Get in touch with us to discuss how we can help your business:</p>
+    <p>Email: <a href="mailto:vladcfb@gmail.com" style="color: #4CAF50;">vladcfb@gmail.com</a></p>
+    
+    <h3>Contact Form</h3>
+    <!-- Форма для отправки через Formspree -->
+    <form action="https://formspree.io/f/xldbjyrg" method="POST">
+      <label for="email">Your email:</label><br>
+      <input type="email" name="email" required><br>
+
+      <label for="message">Your message:</label><br>
+      <textarea name="message" required></textarea><br>
+
+      <button type="submit">Send</button>
+    </form>
   </section>
 
   <footer>
