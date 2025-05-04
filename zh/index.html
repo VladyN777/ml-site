@@ -10,12 +10,12 @@
   <meta name="keywords" content="机器学习, 深度学习, 人工智能, 计算机视觉" />
   <meta property="og:title" content="ML 公司" />
   <meta property="og:description" content="为企业提供创新的 ML 解决方案" />
-  <meta property="og:image" content="https://your.site/og-image.jpg" />
+  <meta property="og:image" content="https://your.site/assets/og-image.jpg" />
   <meta property="og:url" content="https://your.site" />
 
-  <!-- AOS 动画 CSS -->
+  <!-- AOS Animation CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <!-- Google 字体 -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
@@ -26,7 +26,6 @@
       --accent: #4CAF50;
       --light-bg: #f5f5f5;
       --light-fg: #222;
-      --light-card: #fff;
     }
     body {
       font-family: 'Poppins', sans-serif;
@@ -38,94 +37,247 @@
       padding-bottom: 60px;
       transition: background 0.3s, color 0.3s;
     }
-    body.light {
-      background: var(--light-bg);
-      color: var(--light-fg);
-    }
+    body.light { background: var(--light-bg); color: var(--light-fg); }
     header {
-      position: relative;
-      background: var(--bg);
-      color: var(--fg);
-      text-align: center;
-      padding: 1rem;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: relative; background: var(--bg); color: var(--fg);
+      text-align: center; padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index:1000;
     }
-    header img { max-width: 200px; height: auto; margin-bottom: 1rem; }
-    header h1 {
-      font-weight: 600;
-      font-size: 2rem;
-      letter-spacing: 1px;
-      margin: 0.5rem 0;
-    }
+    header img { max-width:200px; margin-bottom:1rem; }
+    header h1 { margin:0.5rem 0; font-size:2rem; font-weight:600; letter-spacing:1px; }
     nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      background: rgba(26,26,46,0.95);
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1001;
+      display:flex; justify-content:center; gap:20px;
+      background: rgba(26,26,46,0.95); padding:10px 0;
+      position:sticky; top:0; z-index:1001;
     }
-    nav a {
-      color: var(--fg); text-decoration: none;
-      font-weight: 500; transition: color 0.3s;
-    }
-    nav a:hover { color: var(--accent); }
+    nav a { color:var(--fg); text-decoration:none; font-weight:500; transition:color .3s; }
+    nav a:hover { color:var(--accent); }
+    #themeToggle, #langSelect { position:fixed; top:20px; border-radius:4px; z-index:1002; }
     #themeToggle {
-      position: fixed; top: 20px; right: 20px;
-      background: var(--card); color: var(--fg);
-      border: none; padding: 8px 12px; cursor: pointer;
-      border-radius: 4px; z-index:1002;
+      right:20px; background:var(--card); color:var(--fg);
+      border:none; padding:8px 12px; cursor:pointer;
     }
     #langSelect {
-      position: fixed; top: 20px; right: 80px;
-      z-index: 1002; padding: 6px;
-      border-radius: 4px; border: 1px solid #ccc;
-      background: var(--card); color: var(--fg);
+      right:80px; padding:6px; background:var(--card);
+      color:var(--fg); border:1px solid #ccc;
     }
-    section {
-      max-width: 1200px; margin: 2rem auto;
-      padding: 2.5rem 1rem;
-    }
+    section { max-width:1200px; margin:2rem auto; padding:2.5rem 1rem; }
     section h2 {
-      font-size: 2.5rem; font-weight: 600;
-      position: relative; margin-bottom: 1rem;
+      font-size:2.5rem; font-weight:600;
+      position:relative; margin-bottom:1rem;
     }
     section h2::after {
-      content: '';
-      position: absolute; bottom: -8px; left: 0;
-      width: 60px; height: 4px;
-      background: var(--accent); border-radius: 2px;
+      content:''; position:absolute; bottom:-8px; left:0;
+      width:60px; height:4px; background:var(--accent);
+      border-radius:2px;
     }
-    section p { color: #cfcfcf; margin-bottom:1.5rem; }
+    section p { color:#cfcfcf; margin-bottom:1.5rem; }
 
     /* 服务网格 */
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 24px; }
-    .service-card { background: var(--card); padding:1.75rem; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.3); transition: transform .3s, box-shadow .3s; }
-    .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
-    .service-card h3 { font-size:1.75rem; font-weight:500; color: var(--accent); margin-bottom:0.5rem; }
-    .service-card h3::after { content:''; display:block; width:40px; height:3px; background: var(--accent); border-radius:2px; margin:6px 0 1rem; }
+    .services-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:24px;
+    }
+    .service-card {
+      background:var(--card);
+      padding:1.75rem;
+      border-radius:8px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.3);
+      transition:transform .3s,box-shadow .3s;
+    }
+    .service-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.4);
+    }
+    .service-card h3 {
+      font-size:1.75rem; font-weight:500;
+      color:var(--accent); margin-bottom:.5rem;
+    }
+    .service-card h3::after {
+      content:''; display:block; width:40px; height:3px;
+      background:var(--accent); border-radius:2px;
+      margin:6px 0 1rem;
+    }
     .service-card p { font-weight:300; color:#d0d0d0; }
+
+    /* 项目 */
+    .project-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+    }
+    .project-card {
+      background:var(--card);
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 2px 10px rgba(0,0,0,0.3);
+      transition:transform .3s;
+    }
+    .project-card:hover { transform:translateY(-5px); }
+    .project-card img { width:100%; display:block; }
+    .project-card h3 { margin:.75rem; color:var(--accent); }
+    .project-card p { margin:0 .75rem 1rem; color:#d0d0d0; }
+    .project-card a { display:inline-block; margin:0 .75rem 1rem;
+      color:var(--accent); text-decoration:none;
+    }
+
+    /* 客户评价 */
+    .testimonials {
+      display:flex; gap:20px;
+      overflow-x:auto; padding:1rem 0;
+    }
+    .testimonial {
+      flex:0 0 250px;
+      background:var(--card);
+      padding:1rem;
+      border-radius:8px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.3);
+    }
+    .testimonial p { font-style:italic; color:#d0d0d0; }
+    .testimonial span { display:block; margin-top:.5rem; font-weight:500; color:#fff; }
+
+    /* 团队 */
+    .team-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:20px;
+    }
+    .member { text-align:center; }
+    .member img {
+      width:120px; height:120px;
+      border-radius:50%; object-fit:cover;
+      margin-bottom:.5rem;
+    }
+    .member h3 { margin:.5rem 0 0; color:var(--accent); font-weight:500; }
+    .member p { color:#d0d0d0; }
+
+    /* FAQ */
+    .faq-item { margin-bottom:1rem; }
+    .faq-q {
+      width:100%; background:var(--card);
+      color:#fff; border:none; padding:12px;
+      text-align:left; border-radius:5px; cursor:pointer;
+    }
+    .faq-a {
+      max-height:0; overflow:hidden;
+      background:var(--card); color:#d0d0d0;
+      transition:max-height .3s ease;
+    }
+    .faq-a.open { max-height:200px; padding:12px; }
+
+    /* 定价 */
+    .pricing-grid {
+      display:flex; gap:20px; flex-wrap:wrap; justify-content:center;
+    }
+    .plan {
+      background:var(--card);
+      padding:1.5rem;
+      border-radius:8px;
+      text-align:center;
+      min-width:200px; max-width:300px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.3);
+    }
+    .plan h3 { color:var(--accent); margin-bottom:.5rem; }
+    .plan p { font-size:1.5rem; margin:.5rem 0; }
+    .plan ul { list-style:none; padding:0; margin:1rem 0; }
+    .plan ul li { color:#d0d0d0; margin-bottom:.5rem; }
+    .plan button {
+      margin-top:1rem; padding:.75rem 1.5rem;
+      background:var(--accent); color:#fff;
+      border:none; border-radius:5px; cursor:pointer;
+    }
+    .plan button:hover { background:#45a049; }
+
+    /* 博客 */
+    .posts article { margin-bottom:1.5rem; }
+    .posts h3 a { color:var(--accent); text-decoration:none; }
+
+    /* 合作伙伴 */
+    .logos {
+      display:flex; gap:20px;
+      justify-content:center; padding:2rem 0;
+    }
+    .logos img { max-height:60px; opacity:.7; transition:opacity .2s; }
+    .logos img:hover { opacity:1; }
+
+    /* CTA */
+    #cta { text-align:center; padding:3rem 1rem; background:#27293d; }
+    #cta h2 { color:var(--accent); margin-bottom:1rem; font-size:2rem; }
+    #cta button {
+      background:var(--accent); color:#fff;
+      padding:1rem 2rem; font-size:1.1rem;
+      border-radius:5px; border:none; cursor:pointer;
+    }
+    #cta button:hover { background:#45a049; }
+
+    /* 地址 */
+    .map-grid {
+      display:flex; gap:20px; justify-content:center; flex-wrap:nowrap;
+    }
+    .map-card { flex:1; max-width:32%; }
+    .map-card iframe { width:100%; height:200px; border:0; border-radius:8px; }
+    .map-card p { text-align:center; color:#cfcfcf; margin-top:.5rem; }
+
+    /* 联系信息表单 */
+    #contactFormContainer {
+      position:fixed; right:20px; bottom:80px; width:360px;
+      background:#f5f5dc; color:#000; padding:24px; border-radius:8px;
+      box-shadow:0 0 20px rgba(0,0,0,0.3); opacity:0;
+      transform:translateY(20px); transition:all .3s ease;
+      pointer-events:none; z-index:1001;
+    }
+    #contactFormContainer.show { opacity:1; transform:translateY(0); pointer-events:auto; }
+    #contactFormContainer h3 { margin:0 0 1rem; font-size:1.5rem; }
+    #contactFormContainer label { display:block; margin-bottom:.5rem; }
+    #contactFormContainer input, #contactFormContainer textarea {
+      width:100%; padding:12px; margin-bottom:1rem;
+      border-radius:5px; border:1px solid #ccc;
+    }
+    #contactFormContainer textarea { height:140px; }
+    #contactFormContainer button {
+      width:100%; padding:14px;
+      background:var(--accent); color:#fff;
+      border:none; border-radius:5px; cursor:pointer;
+    }
+    #contactFormContainer button:hover { background:#45a049; }
+
+    /* 滚动按钮 */
+    #scrollDownBtn, #scrollToTopBtn {
+      position:fixed; right:20px;
+      background:var(--accent); color:#fff;
+      border:none; padding:12px; font-size:20px;
+      border-radius:50%; cursor:pointer;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:1000;
+    }
+    #scrollDownBtn { bottom:80px; }
+    #scrollToTopBtn { bottom:20px; display:none; }
+
+    /* 固定页脚 */
+    footer {
+      position:fixed; left:0; bottom:0;
+      width:100%; background:var(--bg);
+      color:var(--fg); text-align:center;
+      padding:10px 0;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.jpg" alt="公司标志" />
+    <img src="/assets/logo.jpg" alt="公司标志" />
     <h1>ML 公司</h1>
   </header>
   <nav>
     <a href="#section1">关于我们</a>
     <a href="#services">我们的服务</a>
-    <a href="#projects">项目</a>
+    <a href="#projects">项目展示</a>
     <a href="#testimonials">客户评价</a>
-    <a href="#team">团队</a>
+    <a href="#team">团队介绍</a>
     <a href="#faq">常见问答</a>
-    <a href="#pricing">价格</a>
+    <a href="#pricing">定价方案</a>
     <a href="#blog">博客</a>
     <a href="#partners">合作伙伴</a>
-    <a href="#cta">开始</a>
+    <a href="#cta">立即咨询</a>
   </nav>
   <button id="themeToggle" onclick="toggleTheme()">🌓</button>
   <select id="langSelect">
@@ -145,37 +297,151 @@
     <div class="services-grid">
       <div class="service-card" data-aos="zoom-in">
         <h3>定制 ML 模型</h3>
-        <p>从回归到深度神经网络，我们构建并部署适合您数据和目标的模型——需求预测、流程优化、故障检测。</p>
+        <p>从回归到深度神经网络，我们打造并部署贴合您数据与目标的模型——需求预测、流程优化、故障检测。</p>
       </div>
       <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
         <h3>计算机视觉</h3>
-        <p>图像和视频分析：目标检测、分割、OCR 和质量检查。我们帮助在制造、零售、医疗和安全领域自动化视觉任务。</p>
+        <p>图像与视频分析：目标检测、分割、OCR 与质量检查。助力制造、零售、医疗与安全领域的视觉任务自动化。</p>
       </div>
       <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
         <h3>聊天机器人 & NLP</h3>
-        <p>对话式 AI：客户支持机器人、情感分析、文本分类和语言理解。全天候提升您的客户互动体验。</p>
+        <p>对话式 AI：客户支持机器人、情感分析、文本分类与语言理解。提升 24/7 客户体验。</p>
       </div>
       <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
         <h3>预测性维护</h3>
-        <p>分析传感器数据，预测设备故障，实现停机时间最小化、维修成本降低并提高可靠性。</p>
+        <p>分析传感器数据，提前预测设备故障，降低停机时间，节约维护成本，提升可靠性。</p>
       </div>
       <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
         <h3>数据分析 & 洞察</h3>
-        <p>交互式仪表盘、高级可视化和分析报告，将数据转化为可操作的洞察，助您做出明智决策。</p>
+        <p>交互式仪表盘、高级可视化和分析报告，将数据转化为可操作洞察，辅助决策。</p>
       </div>
       <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
         <h3>流程自动化</h3>
-        <p>自动化重复性任务——文档处理、系统集成和交易管理，让团队专注于战略性工作。</p>
+        <p>自动化重复性任务——文档处理、系统集成与事务处理，释放团队专注战略工作。</p>
       </div>
     </div>
   </section>
 
-  <!-- 其余部分（项目、客户评价、团队、FAQ、价格、博客、合作伙伴、CTA、Contact Info）可按需翻译 -->
+  <section id="projects" data-aos="fade-up">
+    <h2>项目展示</h2>
+    <div class="project-grid">
+      <div class="project-card" data-aos="fade-up">
+        <img src="/assets/project1.jpg" alt="需求预测" />
+        <h3>需求预测案例</h3>
+        <p>助力大型电商减少 30% 缺货率。</p>
+        <a href="#">查看案例 →</a>
+      </div>
+      <!-- 添加更多项目 -->
+    </div>
+  </section>
 
-  <!-- AOS 和脚本 -->
+  <section id="testimonials" data-aos="fade-up">
+    <h2>客户评价</h2>
+    <div class="testimonials">
+      <div class="testimonial" data-aos="fade-right">
+        <p>“Thanks to ML Company, our downtime dropped by 40%.”</p>
+        <span>— Jane Doe, TechCorp CTO</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" data-aos="fade-up">
+    <h2>团队介绍</h2>
+    <div class="team-grid">
+      <div class="member" data-aos="flip-left">
+        <img src="/assets/team1.jpg" alt="Vladyslav Novokhatko" />
+        <h3>Vladyslav Novokhatko</h3>
+        <p>首席数据科学家</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" data-aos="fade-up">
+    <h2>常见问答</h2>
+    <div class="faq-item">
+      <button class="faq-q">项目通常需要多长时间？</button>
+      <div class="faq-a">一般从启动到交付需要 4–6 周。</div>
+    </div>
+  </section>
+
+  <section id="pricing" data-aos="fade-up">
+    <h2>定价方案</h2>
+    <div class="pricing-grid">
+      <div class="plan" data-aos="zoom-in">
+        <h3>入门</h3>
+        <p>$2,000</p>
+        <ul><li>基础 ML 模型</li><li>邮件支持</li></ul>
+        <button>选择</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" data-aos="fade-up">
+    <h2>博客</h2>
+    <div class="posts">
+      <article>
+        <h3><a href="#">5 Ways ML Improves Manufacturing</a></h3>
+        <p>了解预测性维护如何节省数百万运营成本。</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="partners" data-aos="fade-up">
+    <h2>合作伙伴</h2>
+    <div class="logos">
+      <img src="/assets/openai.png" alt="OpenAI Logo" />
+    </div>
+  </section>
+
+  <section id="cta" data-aos="fade-up">
+    <h2>准备好转型您的业务了吗？</h2>
+    <button onclick="toggleContactForm()">免费咨询</button>
+  </section>
+
+  <section id="locations" data-aos="fade-up">
+    <h2>我们的地点</h2>
+    <div class="map-grid">
+      <div class="map-card">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2672.203331795797!2d11.563373315679876!3d48.13512517922757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e74f65a0a4d5f%3A0xa4b6a4f1d5a1a2a!2sMunich!5e0!3m2!1sen!2sus!4v1600000000000" loading="lazy"></iframe>
+        <p>德国 慕尼黑</p>
+      </div>
+      <div class="map-card">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086473482047!2d-122.4194152846778!3d37.774929279758634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c3cba1d79%3A0x2dc8c31f5b6b7b9f!2sSan%20Francisco!5e0!3m2!1sen!2sus!4v1600000000001" loading="lazy"></iframe>
+        <p>美国 旧金山</p>
+      </div>
+      <div class="map-card">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999946715574!2d2.3522213156745733!3d48.85661407928764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671d877bfb841%3A0x8d3179bb4d4c3e0e!2sParis!5e0!3m2!1sen!2sus!4v1600000000002" loading="lazy"></iframe>
+        <p>法国 巴黎</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="contactFormContainer">
+    <h3>联系我们</h3>
+    <form action="https://formspree.io/f/xldbjyrg" method="POST">
+      <label>您的邮箱：</label>
+      <input type="email" name="email" required />
+      <label>您的信息：</label>
+      <textarea name="message" required></textarea>
+      <button type="submit">发送</button>
+    </form>
+  </div>
+  <div id="contactIcon" onclick="toggleContactForm()">Contact Us</div>
+
+  <button id="scrollDownBtn" onclick="scrollToSection()">↓</button>
+  <button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+
+  <footer>© 2025 ML 公司</footer>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
+    const topBtn = document.getElementById('scrollToTopBtn');
+    window.onscroll = () => topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    function scrollToSection() { document.getElementById('section1').scrollIntoView({ behavior: 'smooth' }); }
+    document.querySelectorAll('.faq-q').forEach(btn => btn.onclick = () => btn.nextElementSibling.classList.toggle('open'));
+    function toggleContactForm() { document.getElementById('contactFormContainer').classList.toggle('show'); }
     function toggleTheme() { document.body.classList.toggle('light'); localStorage.theme = document.body.classList.contains('light') ? 'light' : 'dark'; }
     if (localStorage.theme === 'light') document.body.classList.add('light');
     document.getElementById('langSelect').onchange = function() {
