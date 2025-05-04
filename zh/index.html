@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ML 公司</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="ML 公司 – 定制化机器学习解决方案，计算机视觉，AI 咨询" />
+  <meta name="keywords" content="机器学习, 深度学习, 人工智能, 计算机视觉" />
+  <meta property="og:title" content="ML 公司" />
+  <meta property="og:description" content="为企业提供创新的 ML 解决方案" />
+  <meta property="og:image" content="https://your.site/og-image.jpg" />
+  <meta property="og:url" content="https://your.site" />
+
+  <!-- AOS 动画 CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- Google 字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #1a1a2e;
+      --fg: #e0e0e0;
+      --card: #2a2a3b;
+      --accent: #4CAF50;
+      --light-bg: #f5f5f5;
+      --light-fg: #222;
+      --light-card: #fff;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0; padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      scroll-behavior: smooth;
+      font-size: 18px; line-height: 1.6;
+      padding-bottom: 60px;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.light {
+      background: var(--light-bg);
+      color: var(--light-fg);
+    }
+    header {
+      position: relative;
+      background: var(--bg);
+      color: var(--fg);
+      text-align: center;
+      padding: 1rem;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    header img { max-width: 200px; height: auto; margin-bottom: 1rem; }
+    header h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      margin: 0.5rem 0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: rgba(26,26,46,0.95);
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1001;
+    }
+    nav a {
+      color: var(--fg); text-decoration: none;
+      font-weight: 500; transition: color 0.3s;
+    }
+    nav a:hover { color: var(--accent); }
+    #themeToggle {
+      position: fixed; top: 20px; right: 20px;
+      background: var(--card); color: var(--fg);
+      border: none; padding: 8px 12px; cursor: pointer;
+      border-radius: 4px; z-index:1002;
+    }
+    #langSelect {
+      position: fixed; top: 20px; right: 80px;
+      z-index: 1002; padding: 6px;
+      border-radius: 4px; border: 1px solid #ccc;
+      background: var(--card); color: var(--fg);
+    }
+    section {
+      max-width: 1200px; margin: 2rem auto;
+      padding: 2.5rem 1rem;
+    }
+    section h2 {
+      font-size: 2.5rem; font-weight: 600;
+      position: relative; margin-bottom: 1rem;
+    }
+    section h2::after {
+      content: '';
+      position: absolute; bottom: -8px; left: 0;
+      width: 60px; height: 4px;
+      background: var(--accent); border-radius: 2px;
+    }
+    section p { color: #cfcfcf; margin-bottom:1.5rem; }
+
+    /* 服务网格 */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 24px; }
+    .service-card { background: var(--card); padding:1.75rem; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.3); transition: transform .3s, box-shadow .3s; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+    .service-card h3 { font-size:1.75rem; font-weight:500; color: var(--accent); margin-bottom:0.5rem; }
+    .service-card h3::after { content:''; display:block; width:40px; height:3px; background: var(--accent); border-radius:2px; margin:6px 0 1rem; }
+    .service-card p { font-weight:300; color:#d0d0d0; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.jpg" alt="公司标志" />
+    <h1>ML 公司</h1>
+  </header>
+  <nav>
+    <a href="#section1">关于我们</a>
+    <a href="#services">我们的服务</a>
+    <a href="#projects">项目</a>
+    <a href="#testimonials">客户评价</a>
+    <a href="#team">团队</a>
+    <a href="#faq">常见问答</a>
+    <a href="#pricing">价格</a>
+    <a href="#blog">博客</a>
+    <a href="#partners">合作伙伴</a>
+    <a href="#cta">开始</a>
+  </nav>
+  <button id="themeToggle" onclick="toggleTheme()">🌓</button>
+  <select id="langSelect">
+    <option value="en">English</option>
+    <option value="de">Deutsch</option>
+    <option value="fr">Français</option>
+    <option value="zh" selected>中文</option>
+  </select>
+
+  <section id="section1" data-aos="fade-up">
+    <h2>关于我们</h2>
+    <p>我们为企业提供创新的机器学习解决方案。我们的服务包括趋势预测、流程自动化、计算机视觉、大数据分析等。</p>
+  </section>
+
+  <section id="services" data-aos="fade-up">
+    <h2>我们的服务</h2>
+    <div class="services-grid">
+      <div class="service-card" data-aos="zoom-in">
+        <h3>定制 ML 模型</h3>
+        <p>从回归到深度神经网络，我们构建并部署适合您数据和目标的模型——需求预测、流程优化、故障检测。</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+        <h3>计算机视觉</h3>
+        <p>图像和视频分析：目标检测、分割、OCR 和质量检查。我们帮助在制造、零售、医疗和安全领域自动化视觉任务。</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+        <h3>聊天机器人 & NLP</h3>
+        <p>对话式 AI：客户支持机器人、情感分析、文本分类和语言理解。全天候提升您的客户互动体验。</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+        <h3>预测性维护</h3>
+        <p>分析传感器数据，预测设备故障，实现停机时间最小化、维修成本降低并提高可靠性。</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+        <h3>数据分析 & 洞察</h3>
+        <p>交互式仪表盘、高级可视化和分析报告，将数据转化为可操作的洞察，助您做出明智决策。</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
+        <h3>流程自动化</h3>
+        <p>自动化重复性任务——文档处理、系统集成和交易管理，让团队专注于战略性工作。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 其余部分（项目、客户评价、团队、FAQ、价格、博客、合作伙伴、CTA、Contact Info）可按需翻译 -->
+
+  <!-- AOS 和脚本 -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    function toggleTheme() { document.body.classList.toggle('light'); localStorage.theme = document.body.classList.contains('light') ? 'light' : 'dark'; }
+    if (localStorage.theme === 'light') document.body.classList.add('light');
+    document.getElementById('langSelect').onchange = function() {
+      const lang = this.value;
+      window.location.pathname = lang === 'en' ? '/' : `/${lang}/`;
+    };
+  </script>
+</body>
+</html>
