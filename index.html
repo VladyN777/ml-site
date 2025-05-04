@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ML Company</title>
   <!-- SEO -->
   <meta name="description" content="ML Company – custom machine learning solutions, computer vision, AI consulting" />
@@ -16,55 +16,51 @@
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#1a1a2e;--fg:#e0e0e0;--card:#2a2a3b;--accent:#4CAF50;--light-bg:#f5f5f5;--light-fg:#222}
-    body{font-family:'Poppins',sans-serif;margin:0;padding:0;background:var(--bg);color:var(--fg);scroll-behavior:smooth;font-size:18px;line-height:1.6;transition:.3s}
-    body.light{background:var(--light-bg);color:var(--light-fg)}
-    header{background:var(--bg);text-align:center;padding:1rem;position:relative;z-index:10}
-    header img{max-width:150px;margin-bottom:.5rem}
-    header h1{margin:0;font-size:2rem;font-weight:600}
-    nav{display:flex;justify-content:center;gap:20px;background:rgba(26,26,46,.95);padding:10px 0;position:sticky;top:0;z-index:10}
-    nav a{color:var(--fg);text-decoration:none;font-weight:500;transition:.3s}
-    nav a:hover{color:var(--accent)}
-    #themeToggle,#langSelect{position:fixed;top:20px;border-radius:4px;z-index:11}
-    #themeToggle{right:20px;background:var(--card);border:none;color:var(--fg);padding:8px 12px;cursor:pointer}
-    #langSelect{right:80px;padding:6px;background:var(--card);color:var(--fg);border:1px solid #555}
-    section{max-width:1200px;margin:2rem auto;padding:2rem 1rem}
-    section h2{font-size:2.5rem;position:relative;margin-bottom:1rem}
-    section h2::after{content:'';position:absolute;bottom:-8px;left:0;width:60px;height:4px;background:var(--accent);border-radius:2px}
-    p,li{color:#cfcfcf}
-    ul{padding-left:1.5rem;margin-bottom:1rem}
-    .grid{display:grid;gap:24px}
-    .services-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    .project-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    .card{background:var(--card);border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.3);padding:1.5rem;transition:.3s}
-    .card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.4)}
-    .project-card img{width:100%;border-radius:8px;margin-bottom:.75rem}
-    .faq-q{width:100%;background:var(--card);color:var(--fg);border:none;padding:12px;text-align:left;border-radius:5px;cursor:pointer;margin-bottom:.5rem}
-    .faq-a{max-height:0;overflow:hidden;background:var(--card);color:#cfcfcf;transition:max-height .3s ease;margin-bottom:1rem}
-    .faq-a.open{max-height:200px;padding:.5rem}
-    .pricing-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
-    .plan{min-width:200px;max-width:300px;text-align:center}
-    .plan ul{list-style:none;padding:0;margin:1rem 0}
-    .plan button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:5px;cursor:pointer}
-    .plan button:hover{background:#45a049}
-    .testimonials{display:flex;gap:20px;overflow-x:auto;padding:1rem 0}
-    .testimonial p{font-style:italic;color:#cfcfcf}
-    .testimonial span{display:block;margin-top:.5rem;color:#fff}
-    .team-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
-    .member img{width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:.5rem}
-    .logos{display:flex;gap:20px;justify-content:center;margin:2rem 0}
-    .logos img{max-height:60px;opacity:.7;transition:.2s}
-    .logos img:hover{opacity:1}
-    #cta{background:#27293d;text-align:center;padding:3rem 1rem}
-    .cta-btn{background:var(--accent);color:#fff;padding:1rem 2rem;border:none;border-radius:5px;cursor:pointer}
-    .map-grid{display:flex;gap:20px;flex-wrap:nowrap;justify-content:center}
-    .map-card iframe{width:100%;height:200px;border-radius:8px}
-    #contactFormContainer{position:fixed;right:20px;bottom:80px;width:300px;background:#f5f5dc;color:#000;padding:20px;border-radius:8px;box-shadow:0 0 20px rgba(0,0,0,.3);opacity:0;transform:translateY(20px);transition:.3s;pointer-events:none;z-index:11}
-    #contactFormContainer.show{opacity:1;transform:translateY(0);pointer-events:auto}
-    #scrollDownBtn,#scrollToTopBtn{position:fixed;right:20px;background:var(--accent);color:#fff;border:none;padding:10px;border-radius:50%;cursor:pointer;z-index:10}
-    #scrollDownBtn{bottom:80px}
-    #scrollToTopBtn{bottom:20px;display:none}
-    footer{position:fixed;bottom:0;width:100%;background:var(--bg);color:var(--fg);text-align:center;padding:10px 0}
+    :root { --bg: #1a1a2e; --fg: #e0e0e0; --card: #2a2a3b; --accent: #4CAF50; --light-bg: #f5f5dc; --light-fg: #222; }
+    body { font-family:'Poppins',sans-serif; margin:0; padding:0; background:var(--bg); color:var(--fg); scroll-behavior:smooth; }
+    body.light { background:var(--light-bg); color:var(--light-fg); }
+    header { text-align:center; padding:1rem; background:var(--bg); position:sticky; top:0; z-index:10; }
+    header img { max-width:150px; margin-bottom:.5rem; }
+    header h1 { margin:0; font-size:2rem; font-weight:600; }
+    nav { display:flex; justify-content:center; gap:20px; background:rgba(26,26,46,.95); padding:10px 0; position:sticky; top:60px; z-index:10; }
+    nav a { color:var(--fg); text-decoration:none; font-weight:500; transition:.3s; }
+    nav a:hover { color:var(--accent); }
+    #themeToggle, #langSelect { position:fixed; top:20px; z-index:11; border-radius:4px; }
+    #themeToggle { right:20px; background:var(--card); color:var(--fg); border:none; padding:8px 12px; cursor:pointer; }
+    #langSelect { right:80px; background:var(--card); color:var(--fg); border:1px solid #555; padding:6px; }
+    section { max-width:1200px; margin:2rem auto; padding:2rem 1rem; }
+    section h2 { font-size:2.5rem; margin-bottom:1rem; position:relative; }
+    section h2::after { content:''; position:absolute; bottom:-8px; left:0; width:60px; height:4px; background:var(--accent); border-radius:2px; }
+    p, li { color:#cfcfcf; }
+    ul { padding-left:1.5rem; margin-bottom:1rem; }
+    .services-grid, .project-grid { display:grid; gap:24px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+    .card, .faq-q, .plan, .testimonial, .member { background:var(--card); border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3); padding:1.5rem; transition:.3s; }
+    .card:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,.4); }
+    .project-card img { width:100%; border-radius:8px; margin-bottom:.75rem; }
+    .faq-q { width:100%; border:none; cursor:pointer; margin-bottom:.5rem; }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height .3s ease; margin-bottom:1rem; }
+    .faq-a.open { max-height:200px; padding:.5rem; }
+    .pricing-grid { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+    .plan ul { list-style:none; padding:0; margin:1rem 0; }
+    .plan button { width:100%; padding:10px; background:var(--accent); color:#fff; border:none; border-radius:5px; cursor:pointer; }
+    .plan button:hover { background:#45a049; }
+    .testimonials { display:flex; gap:20px; overflow-x:auto; padding:1rem 0; }
+    .testimonial p { font-style:italic; color:#cfcfcf; }
+    .testimonial span { display:block; margin-top:.5rem; color:#fff; }
+    .team-grid { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .member img { width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:.5rem; }
+    .logos { display:flex; gap:20px; justify-content:center; margin:2rem 0; }
+    .logos img { max-height:60px; opacity:.7; transition:.2s; }
+    .logos img:hover { opacity:1; }
+    #cta { background:#27293d; text-align:center; padding:3rem 1rem; }
+    .cta-btn { background:var(--accent); color:#fff; padding:1rem 2rem; border:none; border-radius:5px; cursor:pointer; }
+    .map-grid { display:flex; gap:20px; flex-wrap:nowrap; justify-content:center; }
+    .map-card iframe { width:100%; height:200px; border-radius:8px; }
+    #contactFormContainer { position:fixed; right:20px; bottom:80px; width:300px; background:var(--light-bg); color:var(--light-fg); padding:20px; border-radius:8px; box-shadow:0 0 20px rgba(0,0,0,.3); opacity:0; transform:translateY(20px); transition:.3s; pointer-events:none; z-index:11; }
+    #contactFormContainer.show { opacity:1; transform:translateY(0); pointer-events:auto; }
+    #scrollDownBtn, #scrollToTopBtn { position:fixed; right:20px; background:var(--accent); color:#fff; padding:10px; border:none; border-radius:50%; cursor:pointer; z-index:10; }
+    #scrollDownBtn { bottom:80px; }
+    #scrollToTopBtn { bottom:20px; display:none; }\n    footer { position:fixed; bottom:0; width:100%; background:var(--bg); color:var(--fg); text-align:center; padding:10px 0; }
   </style>
 </head>
 <body>
@@ -87,9 +83,9 @@
   <button id="themeToggle" onclick="toggleTheme()">🌓</button>
   <select id="langSelect">
     <option value="./" selected>English</option>
-    <option value="de/">Deutsch</option>
-    <option value="fr/">Français</option>
-    <option value="zh/">中文</option>
+    <option value="./de/">Deutsch</option>
+    <option value="./fr/">Français</option>
+    <option value="./zh/">中文</option>
   </select>
 
   <section id="about" data-aos="fade-up">
@@ -99,18 +95,11 @@
 
   <section id="services" data-aos="fade-up">
     <h2>Our Services</h2>
-    <div class="grid services-grid">
-      <div class="card" data-aos="zoom-in">...etc full content...
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({duration:800,once:true});
-    document.getElementById('themeToggle').onclick = ()=>{document.body.classList.toggle('light');localStorage.theme=document.body.classList.contains('light')?'light':'dark';};if(localStorage.theme==='light')document.body.classList.add('light');
-    document.getElementById('langSelect').onchange = function(){window.location.href=this.value};
-    function scrollToSection(){document.getElementById('about').scrollIntoView({behavior:'smooth'})}
-    window.onscroll=()=>document.getElementById('scrollToTopBtn').style.display=window.scrollY>300?'block':'none';
-    function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
-    document.querySelectorAll('.faq-q').forEach(q=>q.onclick=()=>q.nextElementSibling.classList.toggle('open'));
-    window.toggleContactForm=()=>document.getElementById('contactFormContainer').classList.toggle('show');
-  </script>
-</body>
-</html>
+    <div class="services-grid">
+      <div class="card" data-aos="zoom-in">
+        <h3>Custom ML Models</h3>
+        <p>From regression to deep neural networks, we build and deploy models tailored to your data and goals—forecasting demand, optimizing processes, predicting failures.</p>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="100">
+        <h3>Computer Vision</h3>
+        <p>Image and video analysis: object detection, segmentation
