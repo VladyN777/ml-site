@@ -1,204 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ML Company</title>
   <style>
-    /* Общие стили */
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #1a1a2e;
-      color: #e0e0e0;
+      margin: 0; padding: 0;
+      background: #1a1a2e; color: #e0e0e0;
       scroll-behavior: smooth;
+      padding-bottom: 60px; /* пространство для футера */
     }
     header {
-      background: #1a1a2e;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    header img {
-      max-width: 200px;
-      height: auto;
-      margin-bottom: 1rem;
+      background: #1a1a2e; color: #fff;
+      text-align: center; padding: 2rem 1rem;
     }
     section {
-      background: #1a1a2e;
-      color: #e0e0e0;
-      margin: 2rem 1rem;
-      padding: 2rem;
+      background: #1a1a2e; color: #e0e0e0;
+      margin: 2rem 1rem; padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    h2 {
-      color: #fff;
-      font-size: 2rem;
+    h2 { color: #fff; font-size: 2rem; }
+
+    /* фиксированный футер по центру */
+    footer {
+      position: fixed; bottom: 0; left: 0; width: 100%;
+      background: #1a1a2e; color: #e0e0e0;
+      text-align: center; padding: 10px 0;
     }
-    p, ul {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-    ul { padding-left: 1.5rem; }
 
     /* Кнопки прокрутки */
-    #scrollToTopBtn, #scrollDownBtn {
-      position: fixed;
-      right: 20px;
-      background: #4CAF50;
-      color: #fff;
-      border: none;
-      padding: 12px;
-      font-size: 20px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 1000;
+    #scrollDownBtn, #scrollToTopBtn {
+      position: fixed; right: 20px;
+      background: #4CAF50; color: #fff;
+      border: none; padding: 12px;
+      font-size: 20px; border-radius: 50%;
+      cursor: pointer; z-index: 1000;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    #scrollToTopBtn { bottom: 20px; display: none; }
     #scrollDownBtn { bottom: 80px; }
+    #scrollToTopBtn { bottom: 20px; display: none; }
 
-    /* Форма Contact Us — выплывает сверху кнопки */
+    /* Контейнер формы */
     #contactFormContainer {
-      position: fixed;
-      right: 20px;
-      bottom: 80px; /* чуть выше кнопки */
-      width: 300px;
-      background-color: #f5f5dc;
-      color: #000;
-      padding: 20px;
-      border-radius: 8px;
+      position: fixed; right: 20px; bottom: 80px;
+      width: 350px; /* чуть шире */
+      background: #f5f5dc; color: #000;
+      padding: 20px; border-radius: 8px;
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-      z-index: 1001;
-      pointer-events: none;
+      opacity: 0; transform: translateY(20px);
+      transition: all .3s ease;
+      z-index: 1001; pointer-events: none;
     }
     #contactFormContainer.show {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 1; transform: translateY(0);
       pointer-events: auto;
     }
 
-    /* Кнопка вызова формы */
-    #contactIcon {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background: #f5f5dc;
-      color: #000;
-      padding: 12px 20px;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      z-index: 1002;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: background 0.2s, transform 0.2s;
-    }
-    #contactIcon:hover {
-      background: #e0e0b0;
-      transform: scale(1.05);
-    }
-
-    /* Стили формы внутри контейнера */
+    /* Поля растягиваются на всю ширину контейнера */
     #contactFormContainer input,
     #contactFormContainer textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 1rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      box-sizing: border-box;
+      width: 100%; /* 100% ширины контейнера */
+      padding: 10px; margin-bottom: 12px;
+      border-radius: 4px; border: 1px solid #ccc;
+      font-size: 14px; box-sizing: border-box;
+    }
+    #contactFormContainer textarea {
+      height: 120px; /* вы можете увеличить по вкусу */
     }
     #contactFormContainer button {
-      width: 100%;
-      padding: 12px;
-      background: #4CAF50;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
+      width: 100%; padding: 12px;
+      background: #4CAF50; color: #fff;
+      border: none; border-radius: 5px;
+      font-size: 1rem; cursor: pointer;
     }
     #contactFormContainer button:hover {
       background: #45a049;
+    }
+
+    /* Кнопка открытия формы */
+    #contactIcon {
+      position: fixed; right: 20px; bottom: 20px;
+      background: #f5f5dc; color: #000;
+      padding: 12px 20px; border-radius: 5px;
+      font-size: 16px; cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background .2s, transform .2s;
+      z-index: 1002;
+    }
+    #contactIcon:hover {
+      background: #e0e0b0; transform: scale(1.05);
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="logo.jpg" alt="Company Logo">
+    <img src="logo.jpg" alt="Company Logo" style="max-width:150px;"/>
     <h1>ML Company</h1>
   </header>
 
   <section id="section1">
     <h2>About Us</h2>
-    <p>We develop innovative machine learning solutions for businesses. Our services include:</p>
-    <ul>
-      <li>Trend forecasting</li>
-      <li>Process automation</li>
-      <li>Computer vision</li>
-      <li>Big data processing and analysis</li>
-    </ul>
+    <p>We develop innovative machine learning solutions for businesses…</p>
   </section>
 
   <section>
     <h2>Our Services</h2>
-    <p>We offer a wide range of services tailored to your needs:</p>
     <ul>
-      <li>Custom machine learning models</li>
-      <li>Consulting on ML implementation in business</li>
-      <li>Data analysis and insights extraction</li>
-      <li>Integration of solutions into existing systems</li>
+      <li>Custom ML models</li>
+      <li>Consulting</li>
+      <li>Data analysis</li>
+      <li>Integration</li>
     </ul>
   </section>
 
   <footer>
-    <p>&copy; 2025 ML Company</p>
+    © 2025 ML Company
   </footer>
 
-  <!-- Кнопки прокрутки -->
   <button id="scrollDownBtn" onclick="scrollToSection()">&#8595;</button>
   <button id="scrollToTopBtn" onclick="scrollToTop()">&#8593;</button>
 
-  <!-- Контейнер для выплывающей формы -->
   <div id="contactFormContainer">
     <h3>Contact Us</h3>
     <form action="https://formspree.io/f/xldbjyrg" method="POST">
       <label>Your email:</label>
-      <input type="email" name="email" required>
+      <input type="email" name="email" required/>
       <label>Your message:</label>
       <textarea name="message" required></textarea>
       <button type="submit">Send</button>
     </form>
   </div>
-
-  <!-- Кнопка открытия формы -->
   <div id="contactIcon" onclick="toggleContactForm()">Contact Us</div>
 
   <script>
-    // Прокрутка вниз к секции About Us
-    function scrollToSection() {
-      document.querySelector('#section1').scrollIntoView({ behavior: 'smooth' });
-    }
-    // Прокрутка вверх
-    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    // Scroll buttons
+    const topBtn = document.getElementById('scrollToTopBtn');
     window.onscroll = () => {
-      scrollToTopBtn.style.display = (window.scrollY > 300) ? 'block' : 'none';
+      topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
     };
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    function scrollToSection() {
+      document.getElementById('section1').scrollIntoView({ behavior:'smooth' });
     }
-
-    // Показ/скрытие формы
+    function scrollToTop() {
+      window.scrollTo({ top:0, behavior:'smooth' });
+    }
+    // Toggle Contact form
     function toggleContactForm() {
-      document.getElementById('contactFormContainer')
-              .classList.toggle('show');
+      document.getElementById('contactFormContainer').classList.toggle('show');
     }
   </script>
 </body>
