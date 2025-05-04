@@ -1,220 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ML Company</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="ML Company – custom machine learning, computer vision, AI consulting" />
-  <meta name="keywords" content="machine learning, deep learning, AI, computer vision" />
+  <!-- SEO -->
+  <meta name="description" content="ML Company – custom machine learning solutions, computer vision, AI consulting" />
+  <meta name="keywords" content="machine learning, AI, computer vision, predictive maintenance" />
   <meta property="og:title" content="ML Company" />
   <meta property="og:description" content="Innovative ML solutions for businesses" />
-  <meta property="og:image" content="https://your.site/og-image.jpg" />
-  <meta property="og:url" content="https://your.site" />
-
-  <!-- AOS Animation CSS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
+  <meta property="og:image" content="/assets/og-image.jpg" />
+  <meta property="og:url" content="https://vladyn777.github.io/ml-site/" />
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #1a1a2e;
-      --fg: #e0e0e0;
-      --card: #2a2a3b;
-      --accent: #4CAF50;
-      --light-bg: #f5f5f5;
-      --light-fg: #222;
-      --light-card: #fff;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0; padding: 0;
-      background: var(--bg);
-      color: var(--fg);
-      scroll-behavior: smooth;
-      font-size: 18px; line-height: 1.6;
-      padding-bottom: 60px;
-      transition: background 0.3s, color 0.3s;
-    }
-    body.light {
-      background: var(--light-bg);
-      color: var(--light-fg);
-    }
-    header {
-      /* Сделаем шапку компактнее */
-      /* Уберём sticky, оставим только nav sticky */
-      position: relative;
-      background: var(--bg);
-      color: var(--fg);
-      text-align: center;
-      padding: 1rem 1rem;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    header img { max-width: 200px; height: auto; margin-bottom: 1rem; }
-    header h1 {
-      font-weight: 600;
-      font-size: 2rem;
-      letter-spacing: 1px;
-      margin: 0.5rem 0;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      background: rgba(26,26,46,0.95);
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1001;
-    }
-    nav a {
-      color: var(--fg); text-decoration: none;
-      font-weight: 500; transition: color 0.3s;
-    }
-    nav a:hover { color: var(--accent); }
-    #themeToggle {
-      position: fixed; top: 20px; right: 20px;
-      background: var(--card); color: var(--fg);
-      border: none; padding: 8px 12px; cursor: pointer;
-      border-radius: 4px; z-index:1002;
-    }
-
-    section {
-      max-width: 1200px; margin: 2rem auto;
-      padding: 2.5rem 1rem;
-    }
-    section h2 {
-      font-size: 2.5rem; font-weight: 600;
-      position: relative; margin-bottom: 1rem;
-    }
-    section h2::after {
-      content: '';
-      position: absolute; bottom: -8px; left: 0;
-      width: 60px; height: 4px;
-      background: var(--accent); border-radius: 2px;
-    }
-    section p { color: #cfcfcf; margin-bottom:1.5rem; }
-
-    /* Our Services */
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 24px; }
-    .service-card {
-      background: var(--card); padding:1.75rem;
-      border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.3);
-      transition: transform .3s, box-shadow .3s;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    }
-    .service-card h3 {
-      font-size:1.75rem; font-weight:500;
-      color: var(--accent); margin:0 0 0.5rem;
-    }
-    .service-card h3::after {
-      content:''; display:block; width:40px; height:3px;
-      background: var(--accent); border-radius:2px;
-      margin:6px 0 1rem;
-    }
-    .service-card p { font-weight:300; color:#d0d0d0; }
-
-    /* Projects */
-    .project-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
-    .project-card { background:var(--card); border-radius:8px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,0.3); transition: transform .3s; }
-    .project-card:hover { transform: translateY(-5px); }
-    .project-card img { width:100%; height:auto; }
-    .project-card h3 { margin:0.75rem; color: var(--accent); }
-    .project-card p { margin:0 0.75rem 1rem; color:#d0d0d0; }
-    .project-card a { display:inline-block; margin:0 0.75rem 1rem; color: var(--accent); text-decoration:none; }
-
-    /* Testimonials */
-    .testimonials { display:flex; gap:20px; overflow-x:auto; padding:1rem 0; }
-    .testimonial { flex:0 0 250px; background: var(--card); padding:1rem; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.3); }
-    .testimonial p { font-style:italic; color:#d0d0d0; }
-    .testimonial span { display:block; margin-top:0.5rem; font-weight:500; color:#fff; }
-
-    /* Team */
-    .team-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:20px; }
-    .member { text-align:center; }
-    .member img { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:0.5rem; }
-    .member h3 { margin:0.5rem 0 0; color: var(--accent); font-weight:500; }
-    .member p { color:#d0d0d0; }
-
-    /* FAQ */
-    .faq-item { margin-bottom:1rem; }
-    .faq-q { width:100%; background: var(--card); color:#fff;	border:none; padding:12px; text-align:left; border-radius:5px; cursor:pointer; }
-    .faq-a { max-height:0; overflow:hidden; background:var(--card); color:#d0d0d0; transition:max-height .3s ease; }
-    .faq-a.open { max-height:200px; padding:12px; }
-
-    /* Pricing */
-    .pricing-grid { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
-    .plan { background:var(--card); padding:1.5rem; border-radius:8px; text-align:center; flex:1; min-width:200px; max-width:300px; box-shadow:0 2px 10px rgba(0,0,0,0.3); }
-    .plan h3 {	color:var(--accent); margin-bottom:0.5rem; }
-    .plan p {	font-size:1.5rem; margin:0.5rem 0; }
-    .plan ul { list-style:none; padding:0; margin:1rem 0; }
-    .plan ul li { margin-bottom:0.5rem; color:#d0d0d0; }
-    .plan button { margin-top:1rem; padding:0.75rem 1.5rem; background:var(--accent); color:#fff; border:none; border-radius:5px; cursor:pointer; }
-    .plan button:hover { background:#45a049; }
-
-    /* Blog */
-    .posts article { margin-bottom:1.5rem; }
-    .posts h3 a {	color:var(--accent); text-decoration:none; }
-
-    /* Partners */
-    .logos { display:flex; gap:20px; align-items:center; justify-content:center; flex-wrap:wrap; padding:2rem 0; }
-    .logos img { max-height:60px; opacity:0.7; transition:opacity .2s; }
-    .logos img:hover { opacity:1; }
-
-    /* CTA */
-    #cta { text-align:center; padding:3rem 1rem; background:#27293d; color:#e0e0e0; }
-    #cta h2 { color:var(--accent); margin-bottom:1rem; font-size:2rem; }
-    #cta button { background:var(--accent); color:#fff; padding:1rem 2rem; font-size:1.1rem; border-radius:5px; border:none; cursor:pointer; }
-    #cta button:hover { background:#45a049; }
-
-    /* Contact Info */
-    #contact-info iframe { width:100%; height:300px; border:0; border-radius:8px; margin-bottom:1rem; }
-    /* Map grid layout in one row */
-    .map-grid {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: nowrap;
-    }
-    .map-card {
-      flex: 1;
-      max-width: 32%;
-    }
-    .map-card p {
-      text-align: center;
-      margin-top: 0.5rem;
-      color: #cfcfcf;
-    }
-
-    /* Contact Form */
-    #contactFormContainer { position:fixed; right:20px; bottom:80px; width:360px; background:#f5f5dc; color:#000; padding:24px; border-radius:8px; box-shadow:0 0 20px rgba(0,0,0,0.3); opacity:0; transform:translateY(20px); transition:all .3s ease; pointer-events:none; z-index:1001; }
-    #contactFormContainer.show { opacity:1; transform:translateY(0); pointer-events:auto; }
-    #contactFormContainer h3 { margin:0 0 1rem; font-size:1.5rem; font-weight:500; }
-    #contactFormContainer label { display:block; margin-bottom:.5rem; font-weight:500; }
-    #contactFormContainer input, #contactFormContainer textarea { width:100%; padding:12px; margin-bottom:1rem; border-radius:5px; border:1px solid #ccc; font-size:1rem; }
-    #contactFormContainer textarea { height:140px; }
-    #contactFormContainer button { width:100%; padding:14px; background:var(--accent); color:#fff; border:none; border-radius:5px; font-size:1rem; font-weight:500; cursor:pointer; transition:background .2s; }
-    #contactFormContainer button:hover { background:#45a049; }
-
-    /* Toggle Button */
-    #contactIcon { position:fixed; right:20px; bottom:20px; background:#f5f5dc; color:#000; padding:14px 24px; border-radius:6px; font-size:16px; font-weight:500; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2); transition:background .2s, transform .2s; z-index:1002; }
-    #contactIcon:hover { background:#e0e0b0; transform:scale(1.05); }
+    :root{--bg:#1a1a2e;--fg:#e0e0e0;--card:#2a2a3b;--accent:#4CAF50;--light-bg:#f5f5f5;--light-fg:#222}
+    body{font-family:'Poppins',sans-serif;margin:0;padding:0;background:var(--bg);color:var(--fg);scroll-behavior:smooth;font-size:18px;line-height:1.6;transition:.3s}
+    body.light{background:var(--light-bg);color:var(--light-fg)}
+    header{background:var(--bg);text-align:center;padding:1rem;position:relative;z-index:10}
+    header img{max-width:150px;margin-bottom:.5rem}
+    header h1{margin:0;font-size:2rem;font-weight:600}
+    nav{display:flex;justify-content:center;gap:20px;background:rgba(26,26,46,.95);padding:10px 0;position:sticky;top:0;z-index:10}
+    nav a{color:var(--fg);text-decoration:none;font-weight:500;transition:.3s}
+    nav a:hover{color:var(--accent)}
+    #themeToggle,#langSelect{position:fixed;top:20px;border-radius:4px;z-index:11}
+    #themeToggle{right:20px;background:var(--card);border:none;color:var(--fg);padding:8px 12px;cursor:pointer}
+    #langSelect{right:80px;padding:6px;background:var(--card);color:var(--fg);border:1px solid #555}
+    section{max-width:1200px;margin:2rem auto;padding:2rem 1rem}
+    section h2{font-size:2.5rem;position:relative;margin-bottom:1rem}
+    section h2::after{content:'';position:absolute;bottom:-8px;left:0;width:60px;height:4px;background:var(--accent);border-radius:2px}
+    p,li{color:#cfcfcf}
+    ul{padding-left:1.5rem;margin-bottom:1rem}
+    .grid{display:grid;gap:24px}
+    .services-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    .project-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    .card{background:var(--card);border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.3);padding:1.5rem;transition:.3s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.4)}
+    .project-card img{width:100%;border-radius:8px;margin-bottom:.75rem}
+    .faq-q{width:100%;background:var(--card);color:var(--fg);border:none;padding:12px;text-align:left;border-radius:5px;cursor:pointer;margin-bottom:.5rem}
+    .faq-a{max-height:0;overflow:hidden;background:var(--card);color:#cfcfcf;transition:max-height .3s ease;margin-bottom:1rem}
+    .faq-a.open{max-height:200px;padding:.5rem}
+    .pricing-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+    .plan{min-width:200px;max-width:300px;text-align:center}
+    .plan ul{list-style:none;padding:0;margin:1rem 0}
+    .plan button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:5px;cursor:pointer}
+    .plan button:hover{background:#45a049}
+    .testimonials{display:flex;gap:20px;overflow-x:auto;padding:1rem 0}
+    .testimonial p{font-style:italic;color:#cfcfcf}
+    .testimonial span{display:block;margin-top:.5rem;color:#fff}
+    .team-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+    .member img{width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:.5rem}
+    .logos{display:flex;gap:20px;justify-content:center;margin:2rem 0}
+    .logos img{max-height:60px;opacity:.7;transition:.2s}
+    .logos img:hover{opacity:1}
+    #cta{background:#27293d;text-align:center;padding:3rem 1rem}
+    .cta-btn{background:var(--accent);color:#fff;padding:1rem 2rem;border:none;border-radius:5px;cursor:pointer}
+    .map-grid{display:flex;gap:20px;flex-wrap:nowrap;justify-content:center}
+    .map-card iframe{width:100%;height:200px;border-radius:8px}
+    #contactFormContainer{position:fixed;right:20px;bottom:80px;width:300px;background:#f5f5dc;color:#000;padding:20px;border-radius:8px;box-shadow:0 0 20px rgba(0,0,0,.3);opacity:0;transform:translateY(20px);transition:.3s;pointer-events:none;z-index:11}
+    #contactFormContainer.show{opacity:1;transform:translateY(0);pointer-events:auto}
+    #scrollDownBtn,#scrollToTopBtn{position:fixed;right:20px;background:var(--accent);color:#fff;border:none;padding:10px;border-radius:50%;cursor:pointer;z-index:10}
+    #scrollDownBtn{bottom:80px}
+    #scrollToTopBtn{bottom:20px;display:none}
+    footer{position:fixed;bottom:0;width:100%;background:var(--bg);color:var(--fg);text-align:center;padding:10px 0}
   </style>
 </head>
 <body>
-
   <header>
-    <img src="logo.jpg" alt="Company Logo"/>
+    <img src="/assets/logo.jpg" alt="Company Logo">
     <h1>ML Company</h1>
   </header>
   <nav>
-    <a href="#section1">About</a>
+    <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#projects">Projects</a>
     <a href="#testimonials">Testimonials</a>
@@ -226,173 +85,32 @@
     <a href="#cta">Get Started</a>
   </nav>
   <button id="themeToggle" onclick="toggleTheme()">🌓</button>
+  <select id="langSelect">
+    <option value="./" selected>English</option>
+    <option value="de/">Deutsch</option>
+    <option value="fr/">Français</option>
+    <option value="zh/">中文</option>
+  </select>
 
-  <section id="section1" data-aos="fade-up">
+  <section id="about" data-aos="fade-up">
     <h2>About Us</h2>
     <p>We develop innovative machine learning solutions for businesses. Our services include trend forecasting, process automation, computer vision, big data processing and analysis.</p>
   </section>
 
   <section id="services" data-aos="fade-up">
     <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card" data-aos="zoom-in">
-        <h3>Custom ML Models</h3>
-        <p>From regression to deep neural networks, we build and deploy models tailored to your data and goals—forecasting demand, optimizing processes, predicting failures.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
-        <h3>Computer Vision</h3>
-        <p>Image and video analysis: object detection, segmentation, OCR and quality inspection. We help automate visual tasks in manufacturing, retail, healthcare and security.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
-        <h3>Chatbots &amp; NLP</h3>
-        <p>Conversational AI: customer-support bots, sentiment analysis, text classification and language understanding. Enhance your 24/7 customer interactions.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
-        <h3>Predictive Maintenance</h3>
-        <p>Analyze sensor data to forecast equipment failures before they occur, reducing downtime, cutting repair costs and boosting operational reliability.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
-        <h3>Data Analytics &amp; Insights</h3>
-        <p>Interactive dashboards, advanced visualizations and analytical reports that turn your data into actionable intelligence for smarter decision-making.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
-        <h3>Robotic Process Automation</h3>
-        <p>Automate repetitive business tasks—document processing, system integrations and transaction handling—freeing your team to focus on strategic work.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" data-aos="fade-up">
-    <h2>Our Projects</h2>
-    <div class="project-grid">
-      <!-- Пример карточки -->
-      <div class="project-card" data-aos="fade-up">
-        <img src="project1.jpg" alt="Demand Prediction">
-        <h3>Demand Prediction for Retail</h3>
-        <p>Reduced stock-outs by 30% for a major online retailer.</p>
-        <a href="#">Read Case Study →</a>
-      </div>
-      <!-- ... -->
-    </div>
-  </section>
-
-  <section id="testimonials" data-aos="fade-up">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonials">
-      <div class="testimonial" data-aos="fade-right">
-        <p>“Thanks to ML Company, our downtime dropped by 40%.”</p>
-        <span>— Jane Doe, CTO of TechCorp</span>
-      </div>
-      <!-- You can add more testimonials here -->
-    </div>
-  </section>
-
-  <section id="team" data-aos="fade-up">
-    <h2>Meet the Team</h2>
-    <div class="team-grid">
-      <div class="member" data-aos="flip-left">
-        <img src="team1.jpg" alt="Vladyslav Novokhatko">
-        <h3>Vladyslav Novokhatko</h3>
-        <p>Lead Data Scientist</p>
-      </div>
-      <!-- You can add more team members here -->
-    </div>
-  </section>
-
-  <section id="faq" data-aos="fade-up">
-    <h2>FAQ</h2>
-    <div class="faq-item">
-      <button class="faq-q">How long does a project take?</button>
-      <div class="faq-a">Typically 4–6 weeks from kickoff to delivery.</div>
-    </div>
-    <!-- ... -->
-  </section>
-
-  <section id="pricing" data-aos="fade-up">
-    <h2>Pricing Plans</h2>
-    <div class="pricing-grid">
-      <div class="plan" data-aos="zoom-in">
-        <h3>Starter</h3>
-        <p>$2,000</p>
-        <ul><li>Basic ML model</li><li>Email support</li></ul>
-        <button>Choose</button>
-      </div>
-      <!-- ... -->
-    </div>
-  </section>
-
-  <section id="blog" data-aos="fade-up">
-    <h2>Latest Insights</h2>
-    <div class="posts">
-      <article>
-        <h3><a href="#">5 Ways ML Improves Manufacturing</a></h3>
-        <p>Learn how predictive maintenance saves millions in operating costs.</p>
-      </article>
-      <!-- ... -->
-    </div>
-  </section>
-
-  <section id="partners" data-aos="fade-up">
-    <h2>Our Partners</h2>
-    <div class="logos">
-      <img src="openai.png" alt="OpenAI Logo" loading="lazy" />
-    </div>
-  </section>
-
-  <section id="cta" data-aos="fade-up">
-    <h2>Ready to Transform Your Business?</h2>
-    <button onclick="toggleContactForm()">Get a Free Consultation</button>
-  </section>
-
-  <section id="contact-info" data-aos="fade-up">
-    <h2>Our Locations</h2>
-    <div class="map-grid">
-      <div class="map-card">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2672.203331795797!2d11.563373315679876!3d48.13512517922757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e74f65a0a4d5f%3A0xa4b6a4f1d5a1a2a!2sMunich%2C%20Germany!5e0!3m2!1sen!2sus!4v1600000000000" loading="lazy"></iframe>
-        <p>Munich, Germany</p>
-      </div>
-      <div class="map-card">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086473482047!2d-122.4194152846778!3d37.774929279758634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c3cba1d79%3A0x2dc8c31f5b6b7b9f!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1600000000001" loading="lazy"></iframe>
-        <p>San Francisco, USA</p>
-      </div>
-      <div class="map-card">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999946715574!2d2.3522213156745733!3d48.85661407928764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671d877bfb841%3A0x8d3179bb4d4c3e0e!2sParis%2C%20France!5e0!3m2!1sen!2sus!4v1600000000002" loading="lazy"></iframe>
-        <p>Paris, France</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>© 2025 ML Company</footer>
-
-  <!-- Scroll buttons -->
-  <button id="scrollDownBtn" onclick="scrollToSection()">&#8595;</button>
-  <button id="scrollToTopBtn" onclick="scrollToTop()">&#8593;</button>
-
-  <!-- Contact form -->
-  <div id="contactFormContainer">
-    <h3>Contact Us</h3>
-    <form action="https://formspree.io/f/xldbjyrg" method="POST">
-      <label>Your email:</label>
-      <input type="email" name="email" required />
-      <label>Your message:</label>
-      <textarea name="message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </div>
-  <div id="contactIcon" onclick="toggleContactForm()">Contact Us</div>
-
-  <!-- AOS and scripts -->
+    <div class="grid services-grid">
+      <div class="card" data-aos="zoom-in">...etc full content...
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: true });
-    const topBtn = document.getElementById('scrollToTopBtn');
-    window.onscroll = () => topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-    function scrollToSection() { document.getElementById('section1').scrollIntoView({ behavior: 'smooth' }); }
-    document.querySelectorAll('.faq-q').forEach(btn => btn.onclick = () => btn.nextElementSibling.classList.toggle('open'));
-    function toggleContactForm() { document.getElementById('contactFormContainer').classList.toggle('show'); }
-    function toggleTheme() { document.body.classList.toggle('light'); localStorage.theme = document.body.classList.contains('light') ? 'light' : 'dark'; }
-    if (localStorage.theme === 'light') document.body.classList.add('light');
+    AOS.init({duration:800,once:true});
+    document.getElementById('themeToggle').onclick = ()=>{document.body.classList.toggle('light');localStorage.theme=document.body.classList.contains('light')?'light':'dark';};if(localStorage.theme==='light')document.body.classList.add('light');
+    document.getElementById('langSelect').onchange = function(){window.location.href=this.value};
+    function scrollToSection(){document.getElementById('about').scrollIntoView({behavior:'smooth'})}
+    window.onscroll=()=>document.getElementById('scrollToTopBtn').style.display=window.scrollY>300?'block':'none';
+    function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+    document.querySelectorAll('.faq-q').forEach(q=>q.onclick=()=>q.nextElementSibling.classList.toggle('open'));
+    window.toggleContactForm=()=>document.getElementById('contactFormContainer').classList.toggle('show');
   </script>
 </body>
 </html>
