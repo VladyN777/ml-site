@@ -7,11 +7,11 @@
 
   <!-- SEO Meta Tags -->
   <meta name="description" content="ML Company – solutions personnalisées de machine learning, vision par ordinateur, conseil en IA" />
-  <meta name="keywords" content="apprentissage automatique, deep learning, IA, computer vision" />
+  <meta name="keywords" content="apprentissage automatique, deep learning, IA, vision par ordinateur" />
   <meta property="og:title" content="ML Company" />
   <meta property="og:description" content="Solutions ML innovantes pour les entreprises" />
   <meta property="og:image" content="https://your.site/assets/og-image.jpg" />
-  <meta property="og:url" content="https://your.site" />
+  <meta property="og:url" content="https://your.site/fr/" />
 
   <!-- AOS Animation CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -38,202 +38,154 @@
       transition: background 0.3s, color 0.3s;
     }
     body.light { background: var(--light-bg); color: var(--light-fg); }
-    header { position: relative; background: var(--bg); color: var(--fg);
-      text-align: center; padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index:1000;
+    header {
+      background: var(--bg);
+      color: var(--fg);
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    header img { max-width:200px; margin-bottom:1rem; }
-    header h1 { margin:0.5rem 0; font-size:2rem; font-weight:600; letter-spacing:1px; }
-    nav { display:flex; justify-content:center; gap:20px;
-      background: rgba(26,26,46,0.95); padding:10px 0; position:sticky; top:0; z-index:1001;
+    header img { max-width: 200px; margin-bottom: 1rem; }
+    header h1 { font-size: 2rem; font-weight: 600; margin: 0; }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: rgba(26,26,46,0.95);
+      padding: 10px 0;
+      position: sticky;
+      top: 60px;
+      z-index: 1000;
     }
-    nav a { color:var(--fg); text-decoration:none; font-weight:500; transition:color .3s; }
-    nav a:hover { color:var(--accent); }
-    #themeToggle, #langSelect { position:fixed; top:20px; border-radius:4px; z-index:1002; }
-    #themeToggle { right:20px; background:var(--card); color:var(--fg);
-      border:none; padding:8px 12px; cursor:pointer;
+    nav a {
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-    #langSelect { right:80px; padding:6px; background:var(--card);
-      color:var(--fg); border:1px solid #ccc;
+    nav a:hover { color: var(--accent); }
+    #themeToggle, #langSelect {
+      position: fixed;
+      top: 20px;
+      border-radius: 4px;
+      z-index: 1001;
     }
-    section { max-width:1200px; margin:2rem auto; padding:2.5rem 1rem; }
-    section h2 { font-size:2.5rem; font-weight:600; position:relative; margin-bottom:1rem; }
-    section h2::after { content:''; position:absolute; bottom:-8px; left:0;
-      width:60px; height:4px; background:var(--accent); border-radius:2px;
+    #themeToggle {
+      right: 20px;
+      background: var(--card);
+      border: none;
+      color: var(--fg);
+      padding: 8px 12px;
+      cursor: pointer;
     }
-    section p { color:#cfcfcf; margin-bottom:1.5rem; }
-    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
-    .service-card { background:var(--card); padding:1.75rem; border-radius:8px;
-      box-shadow:0 2px 10px rgba(0,0,0,0.3); transition:transform .3s,box-shadow .3s;
+    #langSelect {
+      right: 80px;
+      padding: 6px;
+      background: var(--card);
+      color: var(--fg);
+      border: 1px solid #ccc;
     }
-    .service-card:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.4); }
-    .service-card h3 { font-size:1.75rem; font-weight:500; color:var(--accent); margin-bottom:.5rem; }
-    .service-card h3::after { content:''; display:block; width:40px; height:3px;
-      background:var(--accent); border-radius:2px; margin:6px 0 1rem;
+    section {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2.5rem 1rem;
     }
-    .service-card p { font-weight:300; color:#d0d0d0; }
-    .project-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
-    .project-card { background:var(--card); border-radius:8px; overflow:hidden;
-      box-shadow:0 2px 10px rgba(0,0,0,0.3); transition:transform .3s;
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
     }
-    .project-card:hover { transform:translateY(-5px); }
-    .project-card img { width:100%; display:block; }
-    .project-card h3 { margin:.75rem; color:var(--accent); }
-    .project-card p { margin:0 .75rem 1rem; color:#d0d0d0; }
-    .project-card a { display:inline-block; margin:0 .75rem 1rem;
-      color:var(--accent); text-decoration:none;
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
     }
-    .testimonials { display:flex; gap:20px; overflow-x:auto; padding:1rem 0; }
-    .testimonial { flex:0 0 250px; background:var(--card); padding:1rem;
-      border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.3);
+    section p { color: #cfcfcf; margin-bottom: 1.5rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
-    .testimonial p { font-style:italic; color:#d0d0d0; }
-    .testimonial span { display:block; margin-top:.5rem; font-weight:500; color:#fff; }
-    .team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; }
-    .member { text-align:center; }
-    .member img { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:.5rem; }
-    .member h3 { margin:.5rem 0 0; color:var(--accent); font-weight:500; }
-    .member p { color:#d0d0d0; }
-    .faq-item { margin-bottom:1rem; }
-    .faq-q { width:100%; background:var(--card); color:#fff; border:none; padding:12px;
-      text-align:left; border-radius:5px; cursor:pointer;
+    .service-card {
+      background: var(--card);
+      padding: 1.75rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .faq-a { max-height:0; overflow:hidden; background:var(--card); color:#d0d0d0;
-      transition:max-height .3s ease;
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
-    .faq-a.open { max-height:200px; padding:12px; }
-    .pricing-grid { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
-    .plan { background:var(--card); padding:1.5rem; border-radius:8px;
-      text-align:center; min-width:200px; max-width:300px;
-      box-shadow:0 2px 10px rgba(0,0,0,0.3);
+    .service-card h3 {
+      font-size: 1.75rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
     }
-    .plan h3 { color:var(--accent); margin-bottom:.5rem; }
-    .plan p { font-size:1.5rem; margin:.5rem 0; }
-    .plan ul { list-style:none; padding:0; margin:1rem 0; }
-    .plan ul li { color:#d0d0d0; margin-bottom:.5rem; }
-    .plan button { margin-top:1rem; padding:.75rem 1.5rem; background:var(--accent);
-      color:#fff; border:none; border-radius:5px; cursor:pointer;
+    .service-card p { color: #d0d0d0; }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
-    .plan button:hover { background:#45a049; }
-    .posts article { margin-bottom:1.5rem; }
-    .posts h3 a { color:var(--accent); text-decoration:none; }
-    .logos { display:flex; gap:20px; justify-content:center; padding:2rem 0; }
-    .logos img { max-height:60px; opacity:.7; transition:opacity .2s; }
-    .logos img:hover { opacity:1; }
-    #cta { text-align:center; padding:3rem 1rem; background:#27293d; }
-    #cta h2 { color:var(--accent); margin-bottom:1rem; font-size:2rem; }
-    #cta button { background:var(--accent); color:#fff; padding:1rem 2rem;
-      font-size:1.1rem; border-radius:5px; border:none; cursor:pointer;
+    .project-card {
+      background: var(--card);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
     }
-    #cta button:hover { background:#45a049; }
-    .map-grid { display:flex; gap:20px; justify-content:center; flex-wrap:nowrap; }
-    .map-card { flex:1; max-width:32%; }
-    .map-card iframe { width:100%; height:200px; border:0; border-radius:8px; }
-    .map-card p { text-align:center; color:#cfcfcf; margin-top:.5rem; }
-    #contactInfo iframe { width:100%; height:300px; border:0; border-radius:8px; margin-bottom:1rem; }
-    #contactFormContainer { position:fixed; right:20px; bottom:80px; width:360px;
-      background:#f5f5dc; color:#000; padding:24px; border-radius:8px;
-      box-shadow:0 0 20px rgba(0,0,0,0.3); opacity:0;
-      transform:translateY(20px); transition:all .3s ease;
-      pointer-events:none; z-index:1001;
+    .project-card:hover { transform: translateY(-5px); }
+    .project-card img { width: 100%; display: block; }
+    .project-card h3 { margin: 0.75rem; color: var(--accent); }
+    .project-card p { margin: 0 0.75rem 1rem; color: #d0d0d0; }
+    .project-card a { margin: 0 0.75rem 1rem; color: var(--accent); text-decoration: none; }
+    .testimonials { display: flex; gap: 20px; overflow-x: auto; padding: 1rem 0; }
+    .testimonial {
+      flex: 0 0 250px;
+      background: var(--card);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
-    #contactFormContainer.show { opacity:1; transform:translateY(0); pointer-events:auto; }
-    #contactFormContainer h3 { margin:0 0 1rem; font-size:1.5rem; }
-    #contactFormContainer label { display:block; margin-bottom:.5rem; }
-    #contactFormContainer input, #contactFormContainer textarea {
-      width:100%; padding:12px; margin-bottom:1rem;
-      border-radius:5px; border:1px solid #ccc;
-    }
-    #contactFormContainer textarea { height:140px; }
-    #contactFormContainer button { width:100%; padding:14px;
-      background:var(--accent); color:#fff; border:none; border-radius:5px;
-      cursor:pointer;
-    }
-    #contactFormContainer button:hover { background:#45a049; }
-    #scrollDownBtn, #scrollToTopBtn { position:fixed; right:20px;
-      background:var(--accent); color:#fff; border:none; padding:12px;
-      font-size:20px; border-radius:50%; cursor:pointer;
-      box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:1000;
-    }
-    #scrollDownBtn { bottom:80px; }
-    #scrollToTopBtn { bottom:20px; display:none; }
-    footer { position:fixed; left:0; bottom:0; width:100%; background:var(--bg);
-      color:var(--fg); text-align:center; padding:10px 0;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="/assets/logo.jpg" alt="Logo de l'entreprise" />
-    <h1>ML Company</h1>
-  </header>
-  <nav>
-    <a href="#section1">À propos</a>
-    <a href="#services">Services</a>
-    <a href="#projects">Projets</a>
-    <a href="#testimonials">Témoignages</a>
-    <a href="#team">Équipe</a>
-    <a href="#faq">FAQ</a>
-    <a href="#pricing">Tarifs</a>
-    <a href="#blog">Blog</a>
-    <a href="#partners">Partenaires</a>
-    <a href="#cta">Commencer</a>
-  </nav>
-  <button id="themeToggle" onclick="toggleTheme()">🌓</button>
-  <select id="langSelect">
-    <option value="en">English</option>
-    <option value="de">Deutsch</option>
-    <option value="fr" selected>Français</option>
-    <option value="zh">中文</option>
-  </select>
-
-  <section id="section1" data-aos="fade-up">
-    <h2>À propos de nous</h2>
-    <p>Nous développons des solutions de machine learning innovantes pour les entreprises. Nos services incluent la prévision de tendance, l'automatisation des processus, la vision par ordinateur et l'analyse de big data.</p>
-  </section>
-
-  <section id="services" data-aos="fade-up">
-    <h2>Nos Services</h2>
-    <div class="services-grid">
-      <div class="service-card" data-aos="zoom-in">
-        <h3>Modèles ML personnalisés</h3>
-        <p>Du regression aux réseaux de neurones profonds, nous concevons et déployons des modèles adaptés à vos données et objectifs – prévision de la demande, optimisation des processus, détection des anomalies.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
-        <h3>Computer Vision</h3>
-        <p>Analyse d'images et de vidéos : détection d'objets, segmentation, OCR et contrôle qualité. Nous automatisons les tâches visuelles dans l'industrie, la santé, la vente et la sécurité.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
-        <h3>Chatbots & PNL</h3>
-        <p>IA conversationnelle : bots de support client, analyse de sentiment, classification de texte et compréhension du langage. Améliorez votre service 24/7.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
-        <h3>Maintenance Prédictive</h3>
-        <p>Analyse des données de capteurs pour anticiper les pannes avant qu'elles ne surviennent, réduisant les temps d'arrêt et les coûts de maintenance.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
-        <h3>Analyse de Données & Insights</h3>
-        <p>Tableaux de bord interactifs, visualisations avancées et rapports analytiques pour transformer vos données en décisions éclairées.</p>
-      </div>
-      <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
-        <h3>Automatisation des Processus</h3>
-        <p>Automatisation des tâches répétitives – traitement de documents, intégration de systèmes et gestion des transactions – pour libérer vos équipes.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" data-aos="fade-up">
-    <h2>Nos Projets</h2>
-    <div class="project-grid">
-      <div class="project-card" data-aos="fade-up">
-        <img src="/assets/project1.jpg" alt="Prévision de la demande" />
-        <h3>Prévision de la Demande</h3>
-        <p>Réduction des ruptures de stock de 30% pour un grand détaillant en ligne.</p>
-        <a href="#">Étude de cas →</a>
-      </div>
-      <!-- Ajouter d'autres projets ici -->
-    </div>
-  </section>
-
-  <section id="testimonials" data-aos="fade-up">
-    <h2>Témoignages</h2>
-    <div class="testimonials">
+    .testimonial p { font-style: italic; color: #d0d0d0; }
+    .testimonial span { margin-top: 0.5rem; display: block; color: #fff; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+    .member { text-align: center; }
+    .member img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 0.5rem; }
+    .member h3 { color: var(--accent); margin: 0.5rem 0 0; }
+    .member p { color: #d0d0d0; }
+    .faq-item { margin-bottom: 1rem; }
+    .faq-q { width: 100%; background: var(--card); color: #fff; border: none; padding: 12px; text-align: left; border-radius: 5px; cursor: pointer; }
+    .faq-a { max-height: 0; overflow: hidden; background: var(--card); color: #d0d0d0; transition: max-height 0.3s ease; }
+    .faq-a.open { max-height: 200px; padding: 12px; }
+    .pricing-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .plan { background: var(--card); padding: 1.5rem; border-radius: 8px; text-align: center; min-width: 200px; max-width: 300px; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .plan h3 { color: var(--accent); }
+    .plan p { font-size: 1.5rem; margin: 0.5rem 0; }
+    .plan ul { list-style: none; padding: 0; margin: 1rem 0; }
+    .plan ul li { color: #d0d0d0; margin-bottom: 0.5rem; }
+    .plan button { background: var(--accent); color: #fff; border: none; border-radius: 5px; padding: 0.75rem 1.5rem; cursor: pointer; }
+    .plan button:hover { background: #45a049; }
+    .posts article { margin-bottom: 1.5rem; }
+    .posts h3 a { color: var(--accent); text-decoration: none; }
+    .logos { display: flex; gap: 20px; justify-content: center; padding: 2rem 0; }
+    .logos img { max-height: 60px; opacity: 0.7; transition: opacity 0.2s; }
+    .logos img:hover { opacity: 1; }
+    #cta { text-align: center; padding: 3rem 1rem; background: #27293d; }
+    #cta h2 { color: var(--accent); font-size: 2rem; margin-bottom: 1rem; }
+    #cta button { background: var(--accent); color: #fff; border: none; border-radius: 5px; padding: 1rem 2rem; cursor: pointer; }
+    #cta button:hover { background: #45a049; }
+    .map-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: nowrap; }
+    .map-card { flex: 1; max-width: 32%; }
+    .map-card iframe { width: 100%; height: 200px; border: 0; border-radius: 8px; }
+    .map-card p { text-align: center; color: #cfcfcf; margin-top: 0.5rem; }
+    #contactFormContainer { position: fixed; right: 20px; bottom: 80px; width: 360px; background: #f5f5dc; color: #000; padding: 24px; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.3); opacity: 0; transform: translateY(20px); transition: all 0.3s ease; pointer-events: none; z-index: 1001; }
