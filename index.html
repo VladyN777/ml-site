@@ -5,34 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ML Компания</title>
   <style>
-    body { font-family: sans-serif; margin: 2rem; background: #f9f9f9; }
-    header { font-size: 2rem; margin-bottom: 1rem; }
-    section { margin-bottom: 1.5rem; }
-    footer { margin-top: 2rem; font-size: 0.9rem; color: #666; }
+    /* Основные стили */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+      color: #333;
+    }
+    header {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      font-size: 3rem;
+    }
+    footer {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    /* Разделы */
+    section {
+      background: white;
+      margin: 2rem 1rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #4CAF50;
+      font-size: 2rem;
+    }
+    p, ul {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    /* Стили для изображений */
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      header {
+        font-size: 2rem;
+      }
+      section {
+        margin: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>Моя ML-компания</header>
+  <header>
+    <img src="logo.jpg" alt="Логотип компании" style="max-width: 150px; height: auto;">
+    Моя ML-компания
+  </header>
 
   <section>
     <h2>О нас</h2>
-    <p>Мы разрабатываем машинное обучение под бизнес: прогнозирование, автоматизация, компьютерное зрение.</p>
+    <img src="about-us-image.jpg" alt="О нас" style="max-width: 100%; height: auto;">
+    <p>Мы разрабатываем инновационные решения в области машинного обучения для бизнеса. Наши услуги включают:</p>
+    <ul>
+      <li>Прогнозирование трендов</li>
+      <li>Автоматизация процессов</li>
+      <li>Компьютерное зрение</li>
+      <li>Обработка и анализ больших данных</li>
+    </ul>
   </section>
 
   <section>
-    <h2>Услуги</h2>
+    <h2>Наши услуги</h2>
+    <img src="services-image.jpg" alt="Услуги" style="max-width: 100%; height: auto;">
+    <p>Мы предоставляем широкий спектр услуг, адаптированных под ваши потребности:</p>
     <ul>
-      <li>Обработка данных</li>
-      <li>Модели под ключ</li>
-      <li>Консультации</li>
+      <li>Разработка моделей машинного обучения под ключ</li>
+      <li>Консультации по внедрению ML в бизнес</li>
+      <li>Анализ данных и извлечение инсайтов</li>
+      <li>Интеграция решений в существующие системы</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Наши проекты</h2>
+    <p>Мы гордимся успешными проектами, которые помогли нашим клиентам достичь их целей:</p>
+    <ul>
+      <li>Предсказание спроса для крупных онлайн-магазинов</li>
+      <li>Автоматизация обработки изображений в медицине</li>
+      <li>Оптимизация цепочек поставок с помощью ML-алгоритмов</li>
     </ul>
   </section>
 
   <section>
     <h2>Контакты</h2>
-    <p>Email: hello@mlcompany.com</p>
+    <img src="contact-us-image.jpg" alt="Контакты" style="max-width: 100%; height: auto;">
+    <p>Свяжитесь с нами, чтобы обсудить, как мы можем помочь вашему бизнесу:</p>
+    <p>Email: <a href="mailto:vladcfb@gmail.com" style="color: #4CAF50;">vladcfb@gmail.com</a></p>
+    
+    <h3>Форма для связи</h3>
+    <form action="/submit-form" method="POST" style="background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+      <label for="name">Имя:</label><br>
+      <input type="text" id="name" name="name" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"><br>
+      
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"><br>
+      
+      <label for="message">Сообщение:</label><br>
+      <textarea id="message" name="message" required style="width: 100%; padding: 0.5rem; height: 150px; margin-bottom: 1rem;"></textarea><br>
+      
+      <button type="submit" style="background: #4CAF50; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 4px;">Отправить</button>
+    </form>
   </section>
 
-  <footer>© 2025 Моя ML-компания</footer>
+  <footer>
+    <p>&copy; 2025 Моя ML-компания</p>
+  </footer>
 </body>
 </html>
