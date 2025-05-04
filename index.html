@@ -73,7 +73,7 @@
     }
     #scrollDownBtn {
       position: fixed;
-      bottom: 80px;
+      bottom: 150px; /* Увеличено расстояние от нижнего края */
       right: 20px;
       background-color: #4CAF50;
       color: white;
@@ -126,14 +126,18 @@
     #contactIcon {
       position: fixed;
       right: 20px;
-      bottom: 100px; /* Чуть выше кнопок прокрутки */
-      background: #4CAF50;
-      color: white;
+      bottom: 210px; /* Увеличено расстояние от нижнего края */
+      background: #f5f5dc; /* Бежевый цвет */
+      color: black;
       padding: 15px;
       border-radius: 50%;
       font-size: 20px;
       cursor: pointer;
       z-index: 10000;
+    }
+
+    #contactIcon:hover {
+      background-color: #e0e0b0; /* Изменение цвета при наведении */
     }
   </style>
 </head>
