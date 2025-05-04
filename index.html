@@ -10,9 +10,9 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #1a1a2e; /* Темно-синий фон */
-      color: #e0e0e0; /* Светлый текст */
-      scroll-behavior: smooth; /* Плавная прокрутка */
+      background: #1a1a2e;
+      color: #e0e0e0;
+      scroll-behavior: smooth;
     }
     header {
       background: #1a1a2e;
@@ -25,20 +25,13 @@
       height: auto;
       margin-bottom: 1rem;
     }
-    footer {
-      background: #1a1a2e;
-      color: #e0e0e0;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1rem;
-    }
     section {
       background: #1a1a2e;
       color: #e0e0e0;
       margin: 2rem 1rem;
       padding: 2rem;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     h2 {
       color: #fff;
@@ -48,43 +41,96 @@
       font-size: 1rem;
       line-height: 1.5;
     }
-    ul {
-      padding-left: 1.5rem;
+    ul { padding-left: 1.5rem; }
+
+    /* Кнопки прокрутки */
+    #scrollToTopBtn, #scrollDownBtn {
+      position: fixed;
+      right: 20px;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      font-size: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    #scrollToTopBtn { bottom: 20px; display: none; }
+    #scrollDownBtn { bottom: 80px; }
+
+    /* Форма Contact Us — выплывает сверху кнопки */
+    #contactFormContainer {
+      position: fixed;
+      right: 20px;
+      bottom: 80px; /* чуть выше кнопки */
+      width: 300px;
+      background-color: #f5f5dc;
+      color: #000;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 1001;
+      pointer-events: none;
+    }
+    #contactFormContainer.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
-    /* Стили для кнопки Contact Us (прямоугольная форма) */
+    /* Кнопка вызова формы */
     #contactIcon {
       position: fixed;
       right: 20px;
       bottom: 20px;
-      background: #f5f5dc; /* Бежевый цвет */
-      color: black;
-      padding: 15px 25px; /* Сделаем кнопку прямоугольной */
-      border-radius: 5px; /* Закругленные углы */
-      font-size: 18px;
+      background: #f5f5dc;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 16px;
       cursor: pointer;
-      z-index: 10000;
-      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1002;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.2s, transform 0.2s;
     }
-
-    /* Эффект при наведении */
     #contactIcon:hover {
-      background-color: #e0e0b0; /* Изменение цвета при наведении */
-      transform: scale(1.1); /* Увеличение кнопки */
-      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+      background: #e0e0b0;
+      transform: scale(1.05);
     }
 
-    /* Стили для картинок SkyFi */
-    .skyfi-image {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
+    /* Стили формы внутри контейнера */
+    #contactFormContainer input,
+    #contactFormContainer textarea {
+      width: 100%;
+      padding: 10px;
       margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    #contactFormContainer button {
+      width: 100%;
+      padding: 12px;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #contactFormContainer button:hover {
+      background: #45a049;
     }
   </style>
 </head>
 <body>
+
   <header>
     <img src="logo.jpg" alt="Company Logo">
     <h1>ML Company</h1>
@@ -116,60 +162,44 @@
     <p>&copy; 2025 ML Company</p>
   </footer>
 
-  <!-- Плавающая кнопка прокрутки вверх -->
+  <!-- Кнопки прокрутки -->
+  <button id="scrollDownBtn" onclick="scrollToSection()">&#8595;</button>
   <button id="scrollToTopBtn" onclick="scrollToTop()">&#8593;</button>
 
-  <!-- Кнопка для прокрутки вниз -->
-  <button id="scrollDownBtn" onclick="scrollToSection()">&#8595;</button>
-
-  <!-- Контактная форма справа -->
+  <!-- Контейнер для выплывающей формы -->
   <div id="contactFormContainer">
     <h3>Contact Us</h3>
     <form action="https://formspree.io/f/xldbjyrg" method="POST">
-      <label for="email">Your email:</label><br>
-      <input type="email" name="email" required><br>
-
-      <label for="message">Your message:</label><br>
-      <textarea name="message" required></textarea><br>
-
+      <label>Your email:</label>
+      <input type="email" name="email" required>
+      <label>Your message:</label>
+      <textarea name="message" required></textarea>
       <button type="submit">Send</button>
     </form>
   </div>
 
-  <!-- Иконка для открытия контактной формы -->
+  <!-- Кнопка открытия формы -->
   <div id="contactIcon" onclick="toggleContactForm()">Contact Us</div>
 
   <script>
-    // Плавающая кнопка для прокрутки вверх
+    // Прокрутка вниз к секции About Us
+    function scrollToSection() {
+      document.querySelector('#section1').scrollIntoView({ behavior: 'smooth' });
+    }
+    // Прокрутка вверх
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-
-    window.onscroll = function() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        scrollToTopBtn.style.display = 'block';
-      } else {
-        scrollToTopBtn.style.display = 'none';
-      }
+    window.onscroll = () => {
+      scrollToTopBtn.style.display = (window.scrollY > 300) ? 'block' : 'none';
     };
-
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Кнопка прокрутки вниз
-    const scrollDownBtn = document.getElementById('scrollDownBtn');
-
-    function scrollToSection() {
-      document.querySelector('#section1').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Открытие и скрытие контактной формы
+    // Показ/скрытие формы
     function toggleContactForm() {
-      const contactForm = document.getElementById('contactFormContainer');
-      contactForm.style.display = contactForm.style.display === 'none' || contactForm.style.display === '' ? 'block' : 'none';
+      document.getElementById('contactFormContainer')
+              .classList.toggle('show');
     }
-
-    // Изначально скрываем форму
-    document.getElementById('contactFormContainer').style.display = 'none';
   </script>
 </body>
 </html>
