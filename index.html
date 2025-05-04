@@ -1,172 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ML Company</title>
-  <!-- SEO -->
-  <meta name="description" content="ML Company – custom machine learning solutions, computer vision, AI consulting">
-  <meta name="keywords" content="machine learning, AI, computer vision, predictive maintenance">
-  <meta property="og:title" content="ML Company">
-  <meta property="og:description" content="Innovative ML solutions for businesses">
-  <meta property="og:image" content="/assets/og-image.jpg">
-  <meta property="og:url" content="https://vladyn777.github.io/ml-site/">
-  <!-- AOS Animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="ML Company – custom machine learning solutions, computer vision, AI consulting" />
+  <meta name="keywords" content="machine learning, deep learning, AI, computer vision" />
+  <meta property="og:title" content="ML Company" />
+  <meta property="og:description" content="Innovative ML solutions for businesses" />
+  <meta property="og:image" content="/assets/og-image.jpg" />
+  <meta property="og:url" content="https://vladyn777.github.io/ml-site/" />
+
+  <!-- AOS Animations CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
     :root { --bg:#1a1a2e; --fg:#e0e0e0; --card:#2a2a3b; --accent:#4CAF50; --light-bg:#f5f5dc; --light-fg:#222; }
     * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--fg); scroll-behavior:smooth; }
+    body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--fg); scroll-behavior:smooth; transition:background .3s, color .3s; }
     body.light { background:var(--light-bg); color:var(--light-fg); }
-    header { position:sticky; top:0; background:var(--bg); text-align:center; padding:1rem; z-index:10; }
-    header img { max-width:150px; margin-bottom:.5rem; }
-    header h1 { font-size:2rem; font-weight:600; }
-    nav { display:flex; justify-content:center; gap:1rem; background:rgba(26,26,46,.95); padding:.75rem; position:sticky; top:4rem; z-index:10; }
-    nav a { color:var(--fg); text-decoration:none; font-weight:500; transition:.3s; }
+    header { position:sticky; top:0; background:var(--bg); text-align:center; padding:1rem; box-shadow:0 2px 10px rgba(0,0,0,.2); z-index:1000; }
+    header img { max-width:200px; margin-bottom:1rem; }
+    header h1 { font-size:2rem; font-weight:600; letter-spacing:1px; }
+    nav { display:flex; justify-content:center; gap:20px; background:rgba(26,26,46,.95); padding:.75rem 0; position:sticky; top:72px; z-index:1001; }
+    nav a { color:var(--fg); text-decoration:none; font-weight:500; transition:color .3s; }
     nav a:hover { color:var(--accent); }
-    #themeToggle, #langSelect { position:fixed; top:1rem; z-index:11; border-radius:4px; }
-    #themeToggle { right:1rem; background:var(--card); color:var(--fg); border:none; padding:.5rem; cursor:pointer; }
-    #langSelect { right:4rem; background:var(--card); color:var(--fg); border:1px solid #555; padding:.25rem; }
-    section { max-width:1200px; margin:3rem auto; padding:0 1rem; }
-    section h2 { font-size:2rem; margin-bottom:1rem; position:relative; }
-    section h2::after { content:''; position:absolute; bottom:-.5rem; left:0; width:50px; height:3px; background:var(--accent); border-radius:2px; }
-    p, li { margin-bottom:.75rem; color:#ccc; line-height:1.6; }
+    #themeToggle, #langSelect { position:fixed; top:20px; z-index:1002; border-radius:4px; }
+    #themeToggle { right:20px; background:var(--card); color:var(--fg); border:none; padding:.5rem 1rem; cursor:pointer; }
+    #langSelect { right:80px; background:var(--card); color:var(--fg); border:1px solid #ccc; padding:.25rem; }
+    section { max-width:1200px; margin:2rem auto; padding:2rem 1rem; }
+    section h2 { font-size:2.5rem; font-weight:600; position:relative; margin-bottom:1rem; }
+    section h2::after { content:''; position:absolute; bottom:-6px; left:0; width:50px; height:3px; background:var(--accent); border-radius:2px; }
+    p, li { color:#cfcfcf; margin-bottom:.75rem; line-height:1.6; }
     ul { padding-left:1.5rem; }
-    .services-grid, .project-grid, .map-grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
-    .card { background:var(--card); padding:1rem; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.3); transition:.3s; }
-    .card:hover { transform:translateY(-5px); box-shadow:0 6px 16px rgba(0,0,0,.4); }
-    .project-card img { width:100%; border-radius:8px; margin-bottom:.75rem; }
-    /* Locations */
-    .map-card { overflow:hidden; }
+
+    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+    .service-card { background:var(--card); padding:1.5rem; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3); transition:transform .3s,box-shadow .3s; }
+    .service-card:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,.4); }
+    .service-card h3 { font-size:1.75rem; color:var(--accent); margin-bottom:.5rem; }
+    .service-card p { font-weight:300; color:#d0d0d0; }
+
+    .project-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    .project-card { background:var(--card); border-radius:8px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.3); transition:transform .3s; }
+    .project-card:hover { transform:translateY(-5px); }
+    .project-card img { width:100%; }
+    .project-card h3 { color:var(--accent); margin:.75rem; }
+    .project-card p { margin:0 .75rem 1rem; color:#d0d0d0; }
+    .project-card a { display:inline-block; margin:0 .75rem 1rem; color:var(--accent); }
+
+    .testimonials { display:flex; gap:20px; overflow-x:auto; padding:1rem 0; }
+    .testimonial { flex:0 0 250px; background:var(--card); padding:1rem; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3); }
+    .testimonial p { font-style:italic; color:#d0d0d0; }
+    .testimonial span { display:block; margin-top:.5rem; color:#fff; font-weight:500; }
+
+    .team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; }
+    .member { text-align:center; }
+    .member img { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:.5rem; }
+    .member h3 { color:var(--accent); margin:.5rem 0 0; }
+    .member p { color:#d0d0d0; }
+
+    .faq-item { margin-bottom:1rem; }
+    .faq-q { width:100%; background:var(--card); color:#fff; border:none; padding:12px; text-align:left; border-radius:5px; cursor:pointer; }
+    .faq-a { max-height:0; overflow:hidden; background:var(--card); color:#d0d0d0; transition:max-height .3s ease; }
+    .faq-a.open { max-height:200px; padding:12px; }
+
+    .pricing-grid { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .plan { background:var(--card); padding:1.5rem; border-radius:8px; text-align:center; min-width:200px; max-width:300px; box-shadow:0 2px 10px rgba(0,0,0,.3); }
+    .plan h3 { color:var(--accent); margin-bottom:.5rem; }
+    .plan p { font-size:1.5rem; margin:.5rem 0; }
+    .plan ul { list-style:none; margin:1rem 0; padding:0; }
+    .plan ul li { color:#d0d0d0; margin-bottom:.5rem; }
+    .plan button { background:var(--accent); color:#fff; padding:.75rem 1.5rem; border:none; border-radius:5px; cursor:pointer; }
+    .plan button:hover { background:#45a049; }
+
+    .posts article { margin-bottom:1.5rem; }
+    .posts h3 a { color:var(--accent); text-decoration:none; }
+
+    .logos { display:flex; gap:20px; justify-content:center; padding:2rem 0; }
+    .logos img { max-height:60px; opacity:.7; transition:opacity .2s; }
+    .logos img:hover { opacity:1; }
+
+    #cta { text-align:center; background:#27293d; padding:3rem 1rem; }
+    #cta h2 { color:var(--accent); margin-bottom:1rem; font-size:2rem; }
+    #cta button { background:var(--accent); color:#fff; padding:1rem 2rem; border:none; border-radius:5px; cursor:pointer; }
+    #cta button:hover { background:#45a049; }
+
+    .map-grid { display:flex; gap:20px; justify-content:center; }
+    .map-card { flex:1; max-width:32%; }
     .map-card iframe { width:100%; height:200px; border:0; border-radius:8px; }
-    .map-card p { text-align:center; margin-top:.5rem; color:#ccc; }
-    /* Contact Form */
-    #contactFormContainer { position:fixed; right:1rem; bottom:5rem; width:300px; background:var(--light-bg); color:var(--light-fg); padding:1rem; border-radius:8px; box-shadow:0 2px 12px rgba(0,0,0,.3); opacity:0; transform:translateY(20px); transition:.3s; pointer-events:none; z-index:12; }
+    .map-card p { text-align:center; color:#cfcfcf; margin-top:.5rem; }
+
+    #contactFormContainer { position:fixed; right:20px; bottom:80px; width:360px; background:var(--light-bg); color:var(--light-fg); padding:24px; border-radius:8px; box-shadow:0 0 20px rgba(0,0,0,.3); opacity:0; transform:translateY(20px); transition:all .3s ease; pointer-events:none; }
     #contactFormContainer.show { opacity:1; transform:translateY(0); pointer-events:auto; }
-    #contactFormContainer .form-group { margin-bottom:1rem; }
+    #contactFormContainer h3 { margin-bottom:1rem; font-size:1.5rem; }
     #contactFormContainer label { display:block; margin-bottom:.5rem; }
-    #contactFormContainer input, #contactFormContainer textarea { width:100%; padding:.5rem; border:1px solid #aaa; border-radius:4px; }
-    #contactFormContainer textarea { height:120px; resize:vertical; }
-    #contactFormContainer button { width:100%; padding:.75rem; background:var(--accent); color:#fff; border:none; border-radius:4px; cursor:pointer; }
+    #contactFormContainer input, #contactFormContainer textarea { width:100%; padding:12px; margin-bottom:1rem; border-radius:5px; border:1px solid #ccc; }
+    #contactFormContainer textarea { height:140px; resize:vertical; }
+    #contactFormContainer button { width:100%; padding:14px; background:var(--accent); color:#fff; border:none; border-radius:5px; cursor:pointer; }
     #contactFormContainer button:hover { background:#45a049; }
-    /* Scroll Buttons & Footer */
-    #scrollDownBtn, #scrollToTopBtn { position:fixed; right:1rem; width:40px; height:40px; background:var(--accent); color:#fff; border:none; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10; }
-    #scrollDownBtn { bottom:9rem; }
-    #scrollToTopBtn { bottom:1rem; display:none; }
-    footer { text-align:center; padding:1rem 0; background:var(--bg); color:var(--fg); }
+
+    #scrollDownBtn, #scrollToTopBtn { position:fixed; right:20px; background:var(--accent); color:#fff; border:none; padding:12px; font-size:20px; border-radius:50%; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,.2); }
+    #scrollDownBtn { bottom:80px; }
+    #scrollToTopBtn { bottom:20px; display:none; }
+
+    footer { position:fixed; left:0; bottom:0; width:100%; background:var(--bg); color:var(--fg); text-align:center; padding:10px 0; }
   </style>
 </head>
 <body>
   <header>
-    <img src="/assets/logo.jpg" alt="Company Logo">
+    <img src="/assets/logo.jpg" alt="Company Logo" />
     <h1>ML Company</h1>
   </header>
   <nav>
-    <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#testimonials">Testimonials</a>
-    <a href="#team">Team</a><a href="#faq">FAQ</a><a href="#pricing">Pricing</a><a href="#blog">Blog</a>
-    <a href="#partners">Partners</a><a href="#cta">Get Started</a>
+    <a href="#section1">About Us</a><a href="#services">Our Services</a><a href="#projects">Projects</a><a href="#testimonials">Testimonials</a><a href="#team">Team</a><a href="#faq">FAQ</a><a href="#pricing">Pricing</a><a href="#blog">Blog</a><a href="#partners">Partners</a><a href="#cta">Get Started</a>
   </nav>
   <button id="themeToggle" onclick="toggleTheme()">🌓</button>
-  <select id="langSelect" onchange="location=this.value">
-    <option value="./" selected>English</option>
-    <option value="./de/">Deutsch</option>
-    <option value="./fr/">Français</option>
-    <option value="./zh/">中文</option>
+  <select id="langSelect" onchange="window.location.pathname=this.value==='en'?'/ml-site/':'/ml-site/'+this.value+'/';">
+    <option value="en" selected>English</option>
+    <option value="de">Deutsch</option>
+    <option value="fr">Français</option>
+    <option value="zh">中文</option>
   </select>
 
-  <section id="about" data-aos="fade-up">
+  <section id="section1" data-aos="fade-up">
     <h2>About Us</h2>
-    <p>We develop innovative machine learning solutions for businesses. Our services include trend forecasting, process automation, computer vision, big data processing and analysis.</p>
+    <p>We develop innovative machine learning solutions for businesses. Our services include trend forecasting, process automation, computer vision, big data processing, and advanced analytics.</p>
   </section>
 
   <section id="services" data-aos="fade-up">
     <h2>Our Services</h2>
     <div class="services-grid">
-      <div class="card" data-aos="zoom-in"><h3>Custom ML Models</h3><p>From regression to deep neural networks, we build and deploy models tailored to your data and goals.</p></div>
-      <div class="card" data-aos="zoom-in" data-aos-delay="100"><h3>Computer Vision</h3><p>Automate image/video tasks: detection, segmentation, OCR and quality inspection.</p></div>
-      <div class="card" data-aos="zoom-in" data-aos-delay="200"><h3>Chatbots & NLP</h3><p>24/7 conversational AI: support bots, sentiment analysis and language understanding.</p></div>
-      <div class="card" data-aos="zoom-in" data-aos-delay="300"><h3>Predictive Maintenance</h3><p>Analyze sensor data to forecast equipment failures before they occur.</p></div>
-      <div class="card" data-aos="zoom-in" data-aos-delay="400"><h3>Data Analytics & Insights</h3><p>Interactive dashboards and advanced analytics to drive informed decisions.</p></div>
-      <div class="card" data-aos="zoom-in" data-aos-delay="500"><h3>RPA & Automation</h3><p>Streamline business processes: document processing, system integration and workflows.</p></div>
+      <div class="service-card" data-aos="zoom-in"><h3>Custom ML Models</h3><p>From regression to deep neural networks, we build models tailored to your data and goals.</p></div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="100"><h3>Computer Vision</h3><p>Automate image and video tasks: detection, segmentation, OCR, quality inspection.</p></div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="200"><h3>Chatbots & NLP</h3><p>24/7 conversational AI: support bots, sentiment analysis, language understanding.</p></div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="300"><h3>Predictive Maintenance</h3><p>Sensor analytics to forecast equipment failures ahead of time.</p></div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="400"><h3>Data Analytics</h3><p>Interactive dashboards and insights to guide your strategic decisions.</p></div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="500"><h3>Process Automation</h3><p>Streamline operations: document processing, integration, workflow automation.</p></div>
     </div>
   </section>
 
   <section id="projects" data-aos="fade-up">
     <h2>Projects</h2>
     <div class="project-grid">
-      <div class="card project-card" data-aos="fade-up"><img src="/assets/project1.jpg" alt="Demand Prediction"><h3>Demand Prediction</h3><p>Reduced stock-outs by 30% for a major e-commerce client.</p><a href="#" style="color:var(--accent)">Read Case Study →</a></div>
+      <div class="project-card" data-aos="fade-up"><img src="/assets/project1.jpg" alt="Demand Prediction" /><h3>Demand Prediction</h3><p>Reduced stock-outs by 30% for a major retailer.</p><a href="#">Read Case Study →</a></div>
     </div>
   </section>
-
-  <section id="testimonials" data-aos="fade-up">
-    <h2>Testimonials</h2>
-    <div class="testimonials"><div class="card testimonial" data-aos="fade-right"><p>“Thanks to ML Company, our downtime dropped by 40%.”</p><span>— Jane Doe, CTO of TechCorp</span></div></div>
-  </section>
-
-  <section id="team" data-aos="fade-up">
-    <h2>Team</h2>
-    <div class="team-grid"><div class="card member" data-aos="flip-left"><img src="/assets/team1.jpg" alt="Vladyslav Novokhatko"><h3>Vladyslav Novokhatko</h3><p>Lead Data Scientist</p></div></div>
-  </section>
-
-  <section id="faq" data-aos="fade-up">
-    <h2>FAQ</h2>
-    <button class="faq-q">How long does a project typically take?</button>
-    <div class="faq-a">Usually 4–6 weeks from kickoff to delivery.</div>
-  </section>
-
-  <section id="pricing" data-aos="fade-up">
-    <h2>Pricing</h2>
-    <div class="pricing-grid"><div class="card plan" data-aos="zoom-in"><h3>Starter</h3><p>$2,000</p><ul><li>Basic ML model</li><li>Email support</li></ul><button>Choose</button></div></div>
-  </section>
-
-  <section id="blog" data-aos="fade-up">
-    <h2>Blog</h2>
-    <div class="grid project-grid"><div class="card posts" data-aos="fade-up"><h3><a href="#" style="color:var(--accent)">5 Ways ML Improves Manufacturing</a></h3><p>Discover how predictive maintenance saves millions in operational costs.</p></div></div>
-  </section>
-
-  <section id="partners" data-aos="fade-up">
-    <h2>Partners</h2>
-    <div class="logos"><img src="/assets/openai.png" alt="OpenAI"></div>
-  </section>
-
-  <section id="cta" class="cta-section" data-aos="fade-up">
-    <h2>Ready to transform your business?</h2>
-    <button class="cta-button" onclick="toggleContactForm()">Get Started</button>
-  </section>
-
-  <section id="locations" data-aos="fade-up">
-    <h2>Our Locations</h2>
-    <div class="map-grid">
-      <div class="map-card"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2672.203331795797!2d11.563373315679876!3d48.13512517922757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e74f65a0a4d5f%3A0xa4b6a4f1d5a1a2a!2sMunich!5e0!3m2!1sen!2sus!4v1600000000000" allowfullscreen="" loading="lazy"></iframe><p>Munich, Germany</p></div>
-      <div class="map-card"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086473482047!2d-122.4194152846778!3d37.774929279758634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c3cba1d79%3A0x2dc8c31f5b6b7b9f!2sSan%20Francisco!5e0!3m2!1sen!2sus!4v1600000000001" allowfullscreen="" loading="lazy"></iframe><p>San Francisco, USA</p></div>
-      <div class="map-card"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999946715574!2d2.3522213156745733!3d48.85661407928764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671d877bfb841%3A0x8d3179bb4d4c3e0e!2sParis!5e0!3m2!1sen!2sus!4v1600000000002" allowfullscreen="" loading="lazy"></iframe><p>Paris, France</p></div>
-    </div>
-  </section>
-
-  <div id="contactFormContainer">
-    <h3>Contact Us</h3>
-    <form action="https://formspree.io/f/xldbjyrg" method="POST">
-      <div class="form-group"><label>Your email:</label><input type="email" name="email" required></div>
-      <div class="form-group"><label>Your message:</label><textarea name="message" required></textarea></div>
-      <button type="submit">Send</button>
-    </form>
-  </div>
-
-  <button id="scrollDownBtn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">↓</button>
-  <button id="scrollToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-  <footer>© 2025 ML Company</footer>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({duration:800,once:true});
-    document.getElementById('themeToggle').onclick = ()=>{document.body.classList.toggle('light');localStorage.theme=document.body.classList.contains('light')?'light':'dark';};
-    if(localStorage.theme==='light') document.body.classList.add('light');
-    document.getElementById('langSelect').onchange = function(){window.location=this.value};
-    document.querySelectorAll('.faq-q').forEach(q=>q.onclick=()=>q.nextElementSibling.classList.toggle('open'));
-    window.toggleContactForm = ()=>document.getElementById('contactFormContainer').classList.toggle('show');
-    window.onscroll = ()=>document.getElementById('scrollToTopBtn').style.display = window.scrollY>300?'block':'none';
-  </script>
+}
 </body>
 </html>
